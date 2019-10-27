@@ -2,9 +2,9 @@ from Player import Player
 from Move import Move
 import Checkers
 
-class PlayerHuman(Player):
-    """ PlayerHuman represents a standard piece of colour black or white and
-        is restricted to move forwards diagonally. 
+class PlayerKing(Player):
+    """ PlayerKing represents a standard piece of colour black or white and
+        is able to move in all four diagonals.
     """
 
     def __init__(self, player: str, checkers: Checkers):
@@ -13,7 +13,7 @@ class PlayerHuman(Player):
 
     def get_move(self, row: int, col: int, final_row: int, final_col: int) -> Move:
         """ Pygame will retrieve the coordinates of the tile and pass those into
-            getMove to return a Move object.   
+            getMove to return a Move object.    
         """
         # Row, col are the coordinates of the piece you are moving onto some tile: final_row, final_col
         return Move(row, col, final_row, final_col)
