@@ -20,7 +20,7 @@ class Visualizer:
         return keypressed
 
     """
-    Create a DIMENSION*DIMENSION grid onto the given screen with alternating
+    Create a DIMENSION*DIMENSION grid onto the screen with alternating
     white and grey tiles, with tiles of dimension SIZE*SIZE
     By Ronald, on 10/27/2019
     """
