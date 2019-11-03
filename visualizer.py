@@ -1,5 +1,5 @@
 import pygame
-
+from typing import List
 WINDOW = (500,500)
 BLACK = (0,0,0)
 GREY = (100,100,100)
@@ -50,7 +50,13 @@ if __name__ == "__main__":
     while(is_running):
         events = visualizer.getInput()
         if events:
-            print(events)
+            for event in events:
+                if event.type == 6:
+                    if event.dict['button'] == 1:
+                        print('left' + str(event.dict['pos']))
+                    elif event.dict['button'] == 3:
+                        print('right' + str(event.dict['pos']))
+
         for event in events:
             if event.type == pygame.QUIT:
                 visualizer.quit()
