@@ -52,7 +52,12 @@ class Checkers:
         pass
 
     def other_player(self, player):
-        pass
+        """
+        Return the other player
+        """
+        if(player == self.player_1):
+            return self.player_2
+        return self.player_1
 
     def get(self):
         pass
