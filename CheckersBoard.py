@@ -1,4 +1,4 @@
-class Checkers:
+class CheckersBoard:
 
     def __init__(self):
         """
