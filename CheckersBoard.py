@@ -42,6 +42,7 @@ class CheckersBoard:
                     self.board[k].append(self.player_2)
                 elif(k%2 != 0 and p%2 != 0):
                     self.board[k].append(self.empty)
+       
         # fill the remaining rows with empty spaces
         for m in range(4,6):
             for p in range(10):
@@ -59,8 +60,14 @@ class CheckersBoard:
             return self.player_2
         return self.player_1
 
-    def get(self):
-        pass
+    def get(self, row, col):
+        """
+        Return the value at the position row, col on the 
+        game board. Return -1 if coordinates are invalid.
+        """
+        if(self.valid_coordinate(row, col) == True):
+            return self.board[row][col]
+        return -1
 
     def valid_coordinate(self, row, col):
         """
