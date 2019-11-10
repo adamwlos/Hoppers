@@ -16,8 +16,8 @@ class Checkers:
         self.board = [[],[],[],[],[],[],[],[],[],[]]
         # initiate the game board with all of player_1 and player_2 pieces
         # add player 1 pieces to player 1 side of the board            
-        for i in range(3):
-             for j in range(9):
+        for i in range(4):
+             for j in range(10):
                 # add player 1 peices to each row i on alternating spaces
                 if(i%2 == 0 and j%2 != 0):
                     self.board[i].append(self.player_1)
@@ -30,8 +30,8 @@ class Checkers:
                     self.board[i].append(self.empty)
 
         # add player 2 pieces to player 2 side of the board                     
-        for k in range(6,9):
-            for p in range(9):
+        for k in range(6,10):
+            for p in range(10):
                 # add player 2 peices to each row k on alternating spaces
                 if(k%2 == 0 and p%2 != 0):
                     self.board[k].append(self.player_2)
@@ -42,7 +42,13 @@ class Checkers:
                     self.board[k].append(self.player_2)
                 elif(k%2 != 0 and p%2 != 0):
                     self.board[k].append(self.empty)
+        # fill the remaining rows with empty spaces
+        for m in range(4,6):
+            for p in range(10):
+                self.board[m].append(self.empty)
+                            
                     
+
 
     def __str__(self):
         pass
@@ -64,4 +70,5 @@ class Checkers:
 
     def getCount(self):
         pass
+
 
