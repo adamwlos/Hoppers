@@ -63,7 +63,13 @@ class Checkers:
         pass
 
     def valid_coordinate(self, row, col):
-        pass
+        """
+        Ruturn true iff row, col is a valid coordinate
+        """
+        if(0 <= row <= self.dimension - 1):
+            if(0 <= col <= self.dimension - 1):
+                return True
+        return False
 
     def jump(self, row, col, drow, dcol):
         pass
@@ -73,5 +79,3 @@ class Checkers:
 
     def get_count(self):
         pass
-
-
