@@ -48,18 +48,16 @@ class Checkers:
                 self.board[m].append(self.empty)
                             
                     
-
-
     def __str__(self):
         pass
 
-    def otherplayer(self, player):
+    def other_player(self, player):
         pass
 
     def get(self):
         pass
 
-    def validCoordinate(self, row, col):
+    def valid_coordinate(self, row, col):
         pass
 
     def jump(self, row, col, drow, dcol):
@@ -68,7 +66,7 @@ class Checkers:
     def move(self, row, col):
         pass
 
-    def getCount(self):
+    def get_count(self):
         pass
 
 
