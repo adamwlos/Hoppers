@@ -84,5 +84,18 @@ class CheckersBoard:
     def move(self, row, col):
         pass
 
-    def get_count(self):
-        pass
+    def get_count(self, player):
+        """
+        Return the number of pieces that player has left on 
+        the board
+        """
+        count = 0
+
+        for row in self.board:
+            for position in row:
+                if(position == player):
+                    count+=1
+        
+        return count
+
+
