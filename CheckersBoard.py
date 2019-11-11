@@ -81,8 +81,37 @@ class CheckersBoard:
     def jump(self, row, col, drow, dcol):
         pass
 
-    def move(self, row, col):
-        pass
+    def has_move(self, row, col, drow, dcol):
+        """
+        Return True if piece at position row, col has a
+        move in direction drow, dcol
+        """
+        # check if row and col are valid coordinates
+        if(self.valid_coordinate(row, col) == False):
+            return False
+        
+        # check if row, col has piece on it
+        if(self.get(row, col) == self.empty):
+            return False
+        else:
+            player = self.get(row, col)
+            player_other = self.other_player(player)
+        
+        # check if direction drow, dcol are valid
+        if(-1 >= drow >= 1 and -1 >= drow >= 1):
+            return False
+        
+        # check if player has a valid move in direction drow, dcol
+        if(self.get(row + drow, col + dcol) == player_other):
+            if(self.get(row + 2*drow, col + 2*dcol) == self.empty):
+                return True
+        else:
+            return False
+
+        
+
+
+
 
     def get_count(self, player):
         """
@@ -90,7 +119,8 @@ class CheckersBoard:
         the board
         """
         count = 0
-
+        # cycle through all the positions on the board, and keep
+        # track of how many of player's pieces are on the board
         for row in self.board:
             for position in row:
                 if(position == player):
