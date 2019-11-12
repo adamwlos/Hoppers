@@ -1,5 +1,5 @@
 import pygame
-from typing import List
+from typing import List, Tuple
 
 
 class Visualizer:
@@ -93,7 +93,11 @@ class Visualizer:
                     
         self.screen.blit(background, (0,0))
         pygame.display.update()
-        
+
+def getGridPosition(event) -> Tuple:
+
+    return (event.dict['pos'][0] //50, event.dict['pos'][1]//50)
+
 
 if __name__ == "__main__":
     
@@ -118,9 +122,11 @@ if __name__ == "__main__":
                 if event.type == 6:
                     if event.dict['button'] == 1:
                         print('left' + str(event.dict['pos']))
+                        print(getGridPosition(event))
                     elif event.dict['button'] == 3:
                         print('right' + str(event.dict['pos']))
-
+                        print(getGridPosition(event))
+                        
         for event in events:
             if event.type == pygame.QUIT:
                 visualizer.quit()
