@@ -50,7 +50,19 @@ class CheckersBoard:
                             
                     
     def __str__(self):
-        pass
+        '''
+        Return the string representation of the game board
+        '''
+        current_board = ''
+        # loop through positions on the board adding the value at each 
+        # position to the string representation
+        for row in self.board:
+            current_board += "|"
+            for position in row:
+                current_board += str(position)
+                current_board += "|"
+            current_board += "\n"
+        return current_board
 
     def other_player(self, player):
         """
@@ -109,10 +121,6 @@ class CheckersBoard:
             return False
 
         
-
-
-
-
     def get_count(self, player):
         """
         Return the number of pieces that player has left on 
@@ -129,3 +137,5 @@ class CheckersBoard:
         return count
 
 
+c = CheckersBoard()
+print(c)
