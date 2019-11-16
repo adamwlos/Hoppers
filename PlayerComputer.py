@@ -4,6 +4,7 @@ import random
 import CheckersBoard
 import Checkers
 
+
 class PlayerComputer(Player):
     """ PlayerComputer represents a standard piece of colour black or white and
         is restricted to move forwards diagonally. This player type does not take
@@ -29,6 +30,7 @@ class PlayerComputer(Player):
     def _get_easy_move(self):
         """ Easy mode will calculate a random move to make
             Checks if any piece can jump, if so does that. Otherwise makes random move
+            TODO: Make it search the 2 diagonals infront of it
         """
         moves = []
         required_jumps = []
@@ -36,12 +38,11 @@ class PlayerComputer(Player):
             for col in range(self._checkers.dimension):
                 # Check same color pieces as player to see if they can jump.
                 if self._checkers.get(row, col) == self._player:
-                    possible_jump = self.check_for_jump(self._player, self._checkers, row, col)
-                    if possible_jump[0] != -1 and possible_jump[1] != -1:
-
-                        required_jumps.append(Move(row, col, possible_jump[0], possible_jump[1]))
-
+                    possible_jumps = self.check_for_jump(self._player, row, col)
+                    if len(possible_jumps) > 0:
+                        required_jumps += possible_jumps
                     else:
+                        # This should find regular tiles to move to
                         if self._player == CheckersBoard.P1:
                             # If player is black
                             left = self._checkers.get(row-1, col-1)
@@ -50,7 +51,6 @@ class PlayerComputer(Player):
                                 moves.append(Move(row, col, row-1, col-1))
                             if right == CheckersBoard.EMPTY:
                                 moves.append(Move(row, col, row-1, col+1))
-
                         else:
                             # If player is white
                             left = self._checkers.get(row+1, col+1)
@@ -59,8 +59,8 @@ class PlayerComputer(Player):
                                 moves.append(Move(row, col, row+1, col+1))
                             if right == CheckersBoard.EMPTY:
                                 moves.append(Move(row, col, row+1, col-1))
+        # If a move can be made we prioritize the list with possible moves
         random_index = 0
-        # If a move can be made we prioritize the list with possible moves to choose from
         if len(required_jumps) != 0:
             random_index = random.randint(0, len(required_jumps))
             move = required_jumps[random_index]
@@ -70,48 +70,35 @@ class PlayerComputer(Player):
             move = moves[random_index]
             return move
 
-    def check_for_jump(self, player: str, checkers: Checkers, row: int, col: int):
-        """ Checks the two front diagonals for possible jumps
-            Black will always start on the bottom side of the board. White will start at the top
-            TODO: Improve how this method looks for valid paths that moves can be made in.
+    def check_for_jump(self, player: str, row: int, col: int):
+        """ Checks the two front diagonals for possible jumps.
+            Black begins on the bottom side, white begins at the top side.
+            left and right directions in perspective of the board side.
         """
-
-        final_row = -1
-        final_col = -1
-
-        # This is put the search into the perspective of the specific player colour
-        if player == CheckersBoard.P1:
-            left_dir = (-1,-1)
-            right_dir = (-1,1)
-        else:
-            left_dir = (1,1)
-            right_dir = (1,-1)
-
-        found = False
-
-        while not found:
-            left_diag = (row+left_dir[0], col+left_dir[1])
-            after_left_diag = (row+2*left_dir[0], col+2*left_dir[1])
-            right_diag = (row+right_dir[0], col+right_dir[1])
-            after_right_diag  = (row+2*right_dir[0], col+2*right_dir[1])
-
-            left_player = checkers.get(left_diag[0, left_diag[1]])
-            after_left_player = checkers.get(after_left_diag[0], after_left_diag[1])
-            right_player = checkers.get(right_diag[0], right_diag[1])
-            after_right_player = checkers.get(after_right_diag[0], after_right_diag[1])
-
-            if left_player == CheckersBoard.get_other_player(player) and after_left_player == CheckersBoard.EMPTY:
-                row = left_diag[0]
-                col = left_diag[1]
-            elif right_player == CheckersBoard.get_other_player(player) and after_right_player == CheckersBoard.EMPTY:
-                row = right_diag[0]
-                col = right_diag[1]
-            else:
-                found = True
-                final_row = row
-                final_col = col
-
-        return (final_row, final_col)
+        possible_jumps = []
+        other_player = CheckersBoard.other_player(player)
+        # Check the player to correspond to direction
+        if player == CheckersBoard.PLAYER1:
+            # If black then check row-1,col-1 and row-1,col+1
+            left = self._checkers.get(row-1,col-1)
+            right = self._checkers.get(row-1,col+1)
+            further_left = self._checkers.get(row-2, col-2)
+            further_right = self._checkers.get(row-2, col+2)
+            if left == other_player and further_left == CheckersBoard.EMPTY:
+                possible_jumps.append(Move(row, col, row-2, col-2))
+            if right == other_player and further_right == CheckersBoard.EMPTY:
+                possible_jumps.append(Move(row, col, row-2, col+2))
+        elif player == CheckersBoard.PLAYER2:
+            # If white then check row+1,col-1 and row+1,col+1
+            left = self._checkers.get(row+1,col-1)
+            right = self._checkers.get(row+1,col+1)
+            further_left = self._checkers.get(row+2, col-2)
+            further_right = self._checkers.get(row+2, col+2)
+            if left == other_player and further_left == CheckersBoard.EMPTY:
+                possible_jumps.append(Move(row, col, row+2, col-2))
+            if right == other_player and further_right == CheckersBoard.EMPTY:
+                possible_jumps.append(Move(row, col, row+2, col+2))
+        return possible_jumps
 
     def _get_medium_move(self):
         """ Medium mode
