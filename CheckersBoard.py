@@ -1,5 +1,10 @@
 class CheckersBoard:
 
+    both = "B"
+    empty = " "
+    player_1 = "X"
+    player_2 = "O"
+
     def __init__(self):
         """
         Contains properties of CheckersBoard including dimensions, player
@@ -12,6 +17,7 @@ class CheckersBoard:
         self.player_1_king = "KX"
         self.player_2_king = "KO"
         self.empty = " "
+        self.both = "B"
         self.turn = self.player_1 
         self.board = [[],[],[],[],[],[],[],[],[],[]]
         # initiate the game board with all of player_1 and player_2 pieces
@@ -50,19 +56,7 @@ class CheckersBoard:
                             
                     
     def __str__(self):
-        '''
-        Return the string representation of the game board
-        '''
-        current_board = ''
-        # loop through positions on the board adding the value at each 
-        # position to the string representation
-        for row in self.board:
-            current_board += "|"
-            for position in row:
-                current_board += str(position)
-                current_board += "|"
-            current_board += "\n"
-        return current_board
+        pass
 
     def other_player(self, player):
         """
@@ -70,11 +64,13 @@ class CheckersBoard:
         """
         if(player == self.player_1):
             return self.player_2
-        return self.player_1
+        if (player == self.player_2):
+            return self.player_1
+        return self.empty
 
     def get(self, row, col):
         """
-        Return the value at the position row, col on the 
+        Return the value at the position row, col on the
         game board. Return -1 if coordinates are invalid.
         """
         if(self.valid_coordinate(row, col) == True):
@@ -101,18 +97,18 @@ class CheckersBoard:
         # check if row and col are valid coordinates
         if(self.valid_coordinate(row, col) == False):
             return False
-        
+
         # check if row, col has piece on it
         if(self.get(row, col) == self.empty):
             return False
         else:
             player = self.get(row, col)
             player_other = self.other_player(player)
-        
+
         # check if direction drow, dcol are valid
         if(-1 >= drow >= 1 and -1 >= drow >= 1):
             return False
-        
+
         # check if player has a valid move in direction drow, dcol
         if(self.get(row + drow, col + dcol) == player_other):
             if(self.get(row + 2*drow, col + 2*dcol) == self.empty):
@@ -120,10 +116,30 @@ class CheckersBoard:
         else:
             return False
 
-        
+    def who_has_move(self):
+        p1 = 0
+        p2 = 0
+        for row in range(10):
+            for col in range(10):
+                for drow in range(-1, 1):
+                    for dcol in range(-1,1):
+                        if self.has_move(row, col, drow, dcol, self.player_1):
+                            p1 +=1
+                        elif self.has_move(row, col, drow, dcol, self.player_2):
+                            p2 +=1
+        if p1 == 0 and p2 == 0:
+            return CheckersBoard.empty
+        elif p1 > 0 and p2 > 0:
+            return CheckersBoard.both
+        elif p1 == 0 and p2 > 0:
+            return self.player_2
+        else:
+            return self.player_1
+
+
     def get_count(self, player):
         """
-        Return the number of pieces that player has left on 
+        Return the number of pieces that player has left on
         the board
         """
         count = 0
@@ -133,9 +149,7 @@ class CheckersBoard:
             for position in row:
                 if(position == player):
                     count+=1
-        
+
         return count
 
 
-c = CheckersBoard()
-print(c)
