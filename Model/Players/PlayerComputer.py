@@ -1,8 +1,8 @@
 from Player import Player
-from Move import Move
+from Model.Move import Move
 import random
-import CheckersBoard
-import Checkers
+from Model.CheckersBoard import CheckersBoard
+from Model.Checkers import Checkers
 
 
 class PlayerComputer(Player):

@@ -1,6 +1,6 @@
 from Player import Player
-from Move import Move
-import Checkers
+from Model.Move import Move
+from Model.Checkers import Checkers
 
 class PlayerHuman(Player):
     """ PlayerHuman represents a standard piece of colour black or white and
