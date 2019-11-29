@@ -16,11 +16,12 @@ class PlayerComputer(Player):
         self._player = player
         self._checkers = checkers
 
-    def get_move(self) -> Move:
+    def get_move(self):
         """ Based on what the user selected as the computers difficulty level,
             a move calculate based on that difficulty level will be returned.
             When calculating there will be restrictions of the player only 
-            being able to move forward diagonally
+            being able to move forward diagonally. Returns a list containing 
+            one or more moves.
         """
         if self._difficulty == 0:
             return self._get_easy_move()
@@ -30,7 +31,9 @@ class PlayerComputer(Player):
     def _get_easy_move(self):
         """ Easy mode will calculate a random move to make
             Checks if any piece can jump, if so does that. Otherwise makes 
-            random move.
+            random move. This method will return either a list containing
+            a single more or a list containing multiple moves representing
+            a path of multiple jumps.
         """
         moves = []
         required_jumps = []
@@ -38,7 +41,30 @@ class PlayerComputer(Player):
             for col in range(self._checkers.dimension):
                 # Check same color pieces as player to see if they can jump.
                 if self._checkers.get(row, col) == self._player:
-                    found_jumps = self.check_for_jump(self._player, row, col)
+                    path_made = False
+                    found_jumps = []
+                    for i in range(1):
+                        while (not path_made):
+                            jumps = self.check_for_jump(self._player, row, col)
+                            found_jumps.append(jumps) # list within list
+                            incrow = 0
+                            inccol = 0
+                            if (self._player == CheckersBoard.player_1):
+                                if i == 0:
+                                    incrow = 2
+                                    inccol = 2
+                                elif i == 1:
+                                    incrow = 2
+                                    incrow = -2
+                            elif (self._player == CheckersBoard.player_2):
+                                if i == 0:
+                                    incrow = -2
+                                    inccol = -2
+                                elif i == 1:
+                                    incrow = -2
+                                    incrow = 2
+                            row += incrow
+                            col += inccol
                     if len(found_jumps) > 0:
                         required_jumps += found_jumps
                     else:
@@ -63,12 +89,12 @@ class PlayerComputer(Player):
         random_index = 0
         if len(required_jumps) != 0:
             random_index = random.randint(0, len(required_jumps))
-            move = required_jumps[random_index]
-            return move
+            move_path = required_jumps[random_index]
+            return move_path
         else:
             random_index = random.randint(0, len(moves))
             move = moves[random_index]
-            return move
+            return [move]
 
     def check_for_jump(self, player: str, row: int, col: int):
         """ Checks the two front diagonals for possible jumps.
@@ -101,6 +127,8 @@ class PlayerComputer(Player):
         return found_jumps
 
     def _get_medium_move(self):
-        """ Medium mode
+        """ Medium mode looks for optimal moves where if the opponent were to
+            move then they would likely become jumpable by this player.
+            It will look ahead for two empty tiles and then a opponent piece.
         """
         return
