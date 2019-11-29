@@ -43,22 +43,22 @@ class PlayerComputer(Player):
                         required_jumps += possible_jumps
                     else:
                         # This should find regular tiles to move to
-                        if self._player == CheckersBoard.P1:
+                        if self._player == CheckersBoard.player_1:
                             # If player is black
-                            left = self._checkers.get(row-1, col-1)
-                            right = self._checkers.get(row-1, col+1)
-                            if left == CheckersBoard.EMPTY:
-                                moves.append(Move(row, col, row-1, col-1))
-                            if right == CheckersBoard.EMPTY:
-                                moves.append(Move(row, col, row-1, col+1))
-                        else:
-                            # If player is white
                             left = self._checkers.get(row+1, col+1)
                             right = self._checkers.get(row+1, col-1)
-                            if left == CheckersBoard.EMPTY:
+                            if left == CheckersBoard.empty:
                                 moves.append(Move(row, col, row+1, col+1))
-                            if right == CheckersBoard.EMPTY:
+                            if right == CheckersBoard.empty:
                                 moves.append(Move(row, col, row+1, col-1))
+                        else:
+                            # If player is red
+                            left = self._checkers.get(row-1, col-1)
+                            right = self._checkers.get(row-1, col+1)
+                            if left == CheckersBoard.empty:
+                                moves.append(Move(row, col, row-1, col-1))
+                            if right == CheckersBoard.empty:
+                                moves.append(Move(row, col, row-1, col+1))
         # If a move can be made we prioritize the list with possible moves
         random_index = 0
         if len(required_jumps) != 0:
@@ -76,28 +76,28 @@ class PlayerComputer(Player):
             left and right directions in perspective of the board side.
         """
         possible_jumps = []
-        other_player = CheckersBoard.other_player(player)
+        other_player = self._checkers.other_player(player)
         # Check the player to correspond to direction
-        if player == CheckersBoard.PLAYER1:
-            # If black then check row-1,col-1 and row-1,col+1
-            left = self._checkers.get(row-1,col-1)
-            right = self._checkers.get(row-1,col+1)
-            further_left = self._checkers.get(row-2, col-2)
-            further_right = self._checkers.get(row-2, col+2)
-            if left == other_player and further_left == CheckersBoard.EMPTY:
-                possible_jumps.append(Move(row, col, row-2, col-2))
-            if right == other_player and further_right == CheckersBoard.EMPTY:
-                possible_jumps.append(Move(row, col, row-2, col+2))
-        elif player == CheckersBoard.PLAYER2:
-            # If white then check row+1,col-1 and row+1,col+1
+        if player == CheckersBoard.player_1:
+            # If black then check row+1,col-1 and row+1,col+1
             left = self._checkers.get(row+1,col-1)
             right = self._checkers.get(row+1,col+1)
             further_left = self._checkers.get(row+2, col-2)
             further_right = self._checkers.get(row+2, col+2)
-            if left == other_player and further_left == CheckersBoard.EMPTY:
+            if left == other_player and further_left == CheckersBoard.empty:
                 possible_jumps.append(Move(row, col, row+2, col-2))
-            if right == other_player and further_right == CheckersBoard.EMPTY:
+            if right == other_player and further_right == CheckersBoard.empty:
                 possible_jumps.append(Move(row, col, row+2, col+2))
+        elif player == CheckersBoard.player_2:
+            # If red then check row-1,col-1 and row-1,col+1
+            left = self._checkers.get(row-1,col-1)
+            right = self._checkers.get(row-1,col+1)
+            further_left = self._checkers.get(row-2, col-2)
+            further_right = self._checkers.get(row-2, col+2)
+            if left == other_player and further_left == CheckersBoard.empty:
+                possible_jumps.append(Move(row, col, row-2, col-2))
+            if right == other_player and further_right == CheckersBoard.empty:
+                possible_jumps.append(Move(row, col, row-2, col+2))
         return possible_jumps
 
     def _get_medium_move(self):
