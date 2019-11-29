@@ -44,9 +44,13 @@ class PlayerComputer(Player):
                     path_made = False
                     found_jumps = []
                     for i in range(1):
+                        current_path = []
                         while (not path_made):
                             jumps = self.check_for_jump(self._player, row, col)
-                            found_jumps.append(jumps) # list within list
+                            if jumps == []:
+                                path_made = True
+                                break
+                            current_path += (jumps)
                             incrow = 0
                             inccol = 0
                             if (self._player == CheckersBoard.player_1):
@@ -65,6 +69,7 @@ class PlayerComputer(Player):
                                     incrow = 2
                             row += incrow
                             col += inccol
+                        found_jumps.append(current_path)
                     if len(found_jumps) > 0:
                         required_jumps += found_jumps
                     else:
