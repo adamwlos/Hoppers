@@ -123,11 +123,11 @@ class CheckersBoard:
             return False
 
         # check if directions are valid for regular pieces
-        if(player == self.player_1 and self.get(row, col) == self.player_1):
+        if(player == self.player_1):
             if(drow != -1 and (dcol != -1 or dcol != 1)):
                 return False
         
-        if(player == self.player_2 and self.get(row, col) == self.player_2):
+        if(player == self.player_2):
             if(drow != 1 and (dcol != -1 or dcol != 1)):
                 return False
         
