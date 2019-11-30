@@ -100,7 +100,32 @@ class CheckersBoard:
         return False
 
     def jump(self, row, col, drow, dcol):
-        pass
+        '''
+        Modify the board if piece at row, col can make a move in 
+        drow, dcol
+        Return True if modification is made, otherwise return False
+        '''
+
+        piece = self.get(row, col)
+        if(piece == self.empty):
+            return False
+    
+        # check if piece has move and modify the board if it does
+        if(self.has_move(row, col, drow, dcol) == False):
+            return False
+        else:
+            if(self.get(row + drow, col + dcol) == self.empty):
+                piece = self.get(row, col)
+                self.board[row][col] = self.empty
+                self.board[row + drow][col + dcol] = piece
+                return True
+            else:
+                piece = self.get(row, col)
+                self.board[row][col] = self.empty
+                self.board[row + drow][col + dcol] = self.empty
+                self.board[row + 2*drow][col + 2*dcol] = piece
+                return True
+
 
     def has_move(self, row, col, drow, dcol):
         """
