@@ -135,8 +135,12 @@ class CheckersBoard:
         if(self.get(row + drow, col + dcol) == player_other):
             if(self.get(row + 2*drow, col + 2*dcol) == self.empty):
                 return True
+        elif(self.get(row + drow, col + dcol) == self.empty):
+            return True
         else:
             return False
+
+        
 
         
 
