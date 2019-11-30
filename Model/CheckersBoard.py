@@ -70,7 +70,7 @@ class CheckersBoard:
             current_board += "\n"
         return current_board
 
-        
+
     def other_player(self, player):
         """
         Return the other player
@@ -119,15 +119,26 @@ class CheckersBoard:
             player_other = self.other_player(player)
 
         # check if direction drow, dcol are valid
-        if(-1 >= drow >= 1 and -1 >= drow >= 1):
+        if(-1 != drow and drow != 1 and -1 != dcol and dcol != 1):
             return False
 
+        # check if directions are valid for regular pieces
+        if(player == self.player_1 and self.get(row, col) == self.player_1):
+            if(drow != -1 and (dcol != -1 or dcol != 1)):
+                return False
+        
+        if(player == self.player_2 and self.get(row, col) == self.player_2):
+            if(drow != 1 and (dcol != -1 or dcol != 1)):
+                return False
+        
         # check if player has a valid move in direction drow, dcol
         if(self.get(row + drow, col + dcol) == player_other):
             if(self.get(row + 2*drow, col + 2*dcol) == self.empty):
                 return True
         else:
             return False
+
+        
 
     def who_has_move(self):
         p1 = 0
