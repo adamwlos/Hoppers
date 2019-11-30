@@ -1,5 +1,6 @@
 import pygame
 from typing import List, Tuple
+from MainMenu import MainMenu
 
 
 class Visualizer:
@@ -104,7 +105,26 @@ class Visualizer:
 
 
 if __name__ == "__main__":
+    # Start the program by displaying a game mode selection menu
+    main_menu = MainMenu()
+    menu_open = True
+    game_mode = "" # Stores the game mode as "HumanVSHuman" / "HumanVSComputer"
+    while (menu_open):
+        events = main_menu.get_input()
+        if events:
+            for event in events:
+                # Checks that the event is a left button click
+                if event.type == 6 and event.dict['button'] == 1:
+                    # When the mode is selected we close the menu
+                    game_mode = main_menu.get_game_mode(event)
+                    pygame.quit()
+                    menu_open = False
+                    break
+        if menu_open and event.type == pygame.QUIT:
+            main_menu.quit()
+            is_running = False
     
+    # Open and run the hoppers game
     visualizer = Visualizer()
     board = [[" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
              ["X", " ", "X", " ", "X", " ", "X", " ", "X", " "],
