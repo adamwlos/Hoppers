@@ -1,9 +1,9 @@
-# Hoppers
+# <a name="top"></a> Hoppers
 
 A recreation of the board game Checkers, made using Python and the Pygame library.
 
 ## Navigation
-<a name="top"></a> 
+<a name="navigation"></a> 
 1. [Game Description](#description) 
 3. [Installation](#installation)
     - [Pre-Installation](@preinstallation)
