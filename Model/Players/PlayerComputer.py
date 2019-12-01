@@ -26,7 +26,8 @@ class PlayerComputer(Player):
         if self._difficulty == 0:
             return self._get_easy_move()
         else:
-            return self._get_medium_move()
+            # Different stategies/difficulties can be attached here
+            return
 
     def _get_easy_move(self):
         """ Easy mode will calculate a random move to make
@@ -130,10 +131,3 @@ class PlayerComputer(Player):
             if right == other_player and further_right == CheckersBoard.empty:
                 found_jumps.append(Move(row, col, row-2, col+2))
         return found_jumps
-
-    def _get_medium_move(self):
-        """ Medium mode looks for optimal moves where if the opponent were to
-            move then they would likely become jumpable by this player.
-            It will look ahead for two empty tiles and then a opponent piece.
-        """
-        return

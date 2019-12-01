@@ -26,7 +26,8 @@ class PlayerComputerKing(Player):
         if self._difficulty == 0:
             return self._get_easy_move()
         else:
-            return self._get_medium_move()
+            # Different stategies/difficulties can be attached here
+            return
 
     def _get_easy_move(self):
         """ Easy mode for the computer king will search the four diagonals
@@ -123,6 +124,3 @@ class PlayerComputerKing(Player):
             found_jumps.append(Move(row, col, row+2, col+2))
         
         return found_jumps
-
-    def _get_medium_move(self):
-        return
