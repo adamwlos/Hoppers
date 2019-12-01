@@ -99,14 +99,24 @@ The following members contributed to this project:
 
 Below are paragraphs for each members to describe their contributions to the project:
 
-#####Adam Wloszczak
+##### Adam Wloszczak
+
 ...
-#####Zuhair Syed
+
+##### Zuhair Syed
+
 ...
-#####Yu-Chieh Wu (Sunny)
+
+##### Yu-Chieh Wu (Sunny)
+
 ...
-#####Xinhao Hou (Andy)
+
+##### Xinhao Hou (Andy)
+
 ...
-#####Ronald Chen
+
+##### Ronald Chen
+
 ...
+
 [Back to top](#top)
