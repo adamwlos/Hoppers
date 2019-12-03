@@ -36,11 +36,11 @@ Screenshots and breif descriptions of what they show happening
 
 For an easy installation you can download the executable [here](https://github.com/shadowshadow725/blank/releases/latest)
 
-If you would rather get the source code and run it manually follow the steps below:
+If you would rather get the source code and run it manually then follow the steps below:
 
 #### <a name="preinstallation"></a>Pre-Installation
 
-It is recommended you have the following installed before hand:
+It is recommended that you have the following installed before downloading our game:
 
 - Python 3+
 - Pygame
@@ -98,7 +98,7 @@ cd blank/
 python3 visualizer.py
 ```
 
-The game may also be made into an executable or app file through your choice of third party software.
+The game may also be made into an executable or app file using your choice of third party software.
 
 [Back to top](#top)
 
