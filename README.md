@@ -88,7 +88,7 @@ pip3 install python-pygame
 
 [Back to top](#top)
 
-#### <a name="runnings"></a>Running the game
+#### <a name="running"></a>Running the game
 To run the game you must run the following commands after installing the above software.
 
 ```bash
