@@ -7,9 +7,10 @@ A recreation of the board game Checkers, made using Python and the Pygame librar
 1. [Game Description](#description) 
 3. [Installation](#installation)
     - [Pre-Installation](@preinstallation)
-    - [For Windows](#windows)
-    - [For Linux](#linux)
-    - [For Mac OS](#macos)
+        - [For Windows](#windows)
+        - [For Linux](#linux)
+        - [For Mac OS X](#macos)
+    - [Running the game](#running)
 4. [Documentation](#documentation)
     - [Project Directory Structure](#projdir)
     - [Overview of Code](#overview)
@@ -33,21 +34,71 @@ Screenshots and breif descriptions of what they show happening
 
 ## <a name="installation"></a>Installation
 
+For an easy installation you can download the executable [here](https://github.com/shadowshadow725/blank/releases/latest)
+
+If you would rather get the source code and run it manually follow the steps below:
+
 #### <a name="preinstallation"></a>Pre-Installation
 
-Talk about installing Python, pygame, and git
+It is recommended you have the following installed before hand:
+
+- Python 3+
+- Pygame
+- Git
 
 [Back to top](#top)
 
 #### <a name="windows"></a>For `Windows`
+Install Git for windows [here](https://git-scm.com/download/win)
+Install Python3 for windows [here](https://www.python.org/downloads/windows/)
+
+Install Pygame:
+```bash
+pip3 install python-pygame
+```
 
 [Back to top](#top)
 
 #### <a name="linux"></a>For `Linux`
 
+Use the following commands to install the required software:
+```bash
+Sudo apt-get install git
+Sudo apt-get install python3
+Sudo apt-get install pip3
+pip3 install python-pygame
+```
+
 [Back to top](#top)
 
-#### <a name="Mac OS"></a>For `Mac OS`
+#### <a name="macos"></a>For `Mac OS X`
+
+Optional: Install the homebrew package manager [here](https://brew.sh/).
+
+Install Git for Mac OS X [here](https://git-scm.com/download/mac)
+Install Python3 for Mac OS X [here](https://www.python.org/downloads/mac-osx/)
+`Pip3` comes with Python3
+
+Use the following commands to install the required software:
+```bash
+brew install git
+brew install python
+pip3 install python-pygame
+```
+
+[Back to top](#top)
+
+#### <a name="runnings"></a>Running the game
+To run the game you must run the following commands after installing the above software.
+
+```bash
+cd Documents/Project/
+git clone https://github.com/shadowshadow725/blank.git
+cd blank/
+python3 visualizer.py
+```
+
+The game may also be made into an executable or app file through your choice of third party software.
 
 [Back to top](#top)
 
