@@ -21,8 +21,12 @@ class Move:
     def get_col(self):
         return self._col
 
-    def get_drow(self):
-        return self._drow
-    
+    def get_final_col(self):
+        return self._final_col
+
     def get_dcol(self):
-        return self._dcol
+        return self._final_col - self._col
+
+    def get_drow(self):
+        return self._final_row - self._row
+

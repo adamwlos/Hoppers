@@ -1,8 +1,10 @@
 import pygame
 from typing import List, Tuple
 from MainMenu import MainMenu
-
-
+from Controllers.CheckersHumanVSHuman import CheckersControllerHumanVSHuman
+from Model.Move import Move
+from Model.Checkers import Checkers
+from Model.CheckersBoard import CheckersBoard
 class Visualizer:
 
 
@@ -24,12 +26,16 @@ class Visualizer:
 
     #===Instance Variables===
     screen: pygame.Surface
+    controller: CheckersControllerHumanVSHuman
+    selected: List
 
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(self.WINDOW, pygame.HWSURFACE |
                                               pygame.DOUBLEBUF)
-        
+        self.selected = []
+        self.controller = CheckersControllerHumanVSHuman()
+
     def getInput(self):
         keypressed = pygame.event.get()
         return keypressed
@@ -97,11 +103,25 @@ class Visualizer:
 
     def getGridPosition(self, event) -> Tuple:
 
-        return (event.dict['pos'][0] //50, event.dict['pos'][1]//50)
+        return (event.dict['pos'][1]//50, event.dict['pos'][0] //50)
 
-    def makeMove(self):
+    def makeMove(self, destination: List):
+        m = Move(self.selected[0], self.selected[1], destination[0], destination[1])
+        print(self.controller.play(m))
+        print("from " + str(self.selected))
+        print("to " + str(destination))
+        self.selected = []
+
         #Todo: call controller.move() which should change the model
-        pass
+
+
+    def filterInput(self, location: List) -> None:
+        if self.selected == []:
+            self.selected = location
+        else:
+            self.makeMove(location)
+
+
 
 
 if __name__ == "__main__":
@@ -127,16 +147,18 @@ if __name__ == "__main__":
     
     # Open and run the hoppers game
     visualizer = Visualizer()
-    board = [[" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
-             ["X", " ", "X", " ", "X", " ", "X", " ", "X", " "],
-             [" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
-             ["KX", " ", "X", " ", "X", " ", "X", " ", "X", " "],
-             [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-             [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-             [" ", "O", " ", "O", " ", "O", " ", "O", " ", "O"],
-             ["O", " ", "O", " ", "O", " ", "O", " ", "O", " "],
-             [" ", "O", " ", "O", " ", "O", " ", "O", " ", "O"],
-             ["KO", " ", "O", " ", "O", " ", "O", " ", "O", " "]]
+    # board = [[" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
+    #          ["X", " ", "X", " ", "X", " ", "X", " ", "X", " "],
+    #          [" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
+    #          ["KX", " ", "X", " ", "X", " ", "X", " ", "X", " "],
+    #          [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    #          [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    #          [" ", "O", " ", "O", " ", "O", " ", "O", " ", "O"],
+    #          ["O", " ", "O", " ", "O", " ", "O", " ", "O", " "],
+    #          [" ", "O", " ", "O", " ", "O", " ", "O", " ", "O"],
+    #          ["KO", " ", "O", " ", "O", " ", "O", " ", "O", " "]]
+    board = visualizer.controller.checkers.board.board
+    print(type(board))
     visualizer.create_board(board)
     
     is_running = True
@@ -147,11 +169,13 @@ if __name__ == "__main__":
                 if event.type == 6:
                     if event.dict['button'] == 1:
                         print('left' + str(event.dict['pos']))
+                        visualizer.filterInput(visualizer.getGridPosition(event))
                         print(visualizer.getGridPosition(event))
                     elif event.dict['button'] == 3:
                         print('right' + str(event.dict['pos']))
                         print(visualizer.getGridPosition(event))
-                        
+        board = visualizer.controller.checkers.board.board
+        visualizer.create_board(board)
         for event in events:
             if event.type == pygame.QUIT:
                 visualizer.quit()
