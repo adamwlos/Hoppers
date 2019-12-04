@@ -137,9 +137,10 @@ if __name__ == "__main__":
                 if event.type == 6 and event.dict['button'] == 1:
                     # When the mode is selected we close the menu
                     game_mode = main_menu.get_game_mode(event)
-                    pygame.quit()
-                    menu_open = False
-                    break
+                    if game_mode != "":
+                        pygame.quit()
+                        menu_open = False
+                        break
         if menu_open and event.type == pygame.QUIT:
             main_menu.quit()
             is_running = False

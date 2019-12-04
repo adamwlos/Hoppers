@@ -36,6 +36,7 @@ class PlayerComputer(Player):
             a single more or a list containing multiple moves representing
             a path of multiple jumps.
         """
+        # Stores the possible moves and jump paths found
         moves = []
         required_jumps = []
         for row in range(self._checkers.dimension):
@@ -44,6 +45,8 @@ class PlayerComputer(Player):
                 if self._checkers.get(row, col) == self._player:
                     path_made = False
                     found_jumps = []
+                    # Attempt to build a jump path in the two forward 
+                    # directions
                     for i in range(1):
                         current_path = []
                         while (not path_made):
@@ -54,7 +57,10 @@ class PlayerComputer(Player):
                             current_path += (jumps)
                             incrow = 0
                             inccol = 0
+                            # The forward direction depends on the player's
+                            # perspective.
                             if (self._player == CheckersBoard.player_1):
+                                # Black looks downwards
                                 if i == 0:
                                     incrow = 2
                                     inccol = 2
@@ -62,6 +68,7 @@ class PlayerComputer(Player):
                                     incrow = 2
                                     incrow = -2
                             elif (self._player == CheckersBoard.player_2):
+                                # Red looks upwards
                                 if i == 0:
                                     incrow = -2
                                     inccol = -2
@@ -71,26 +78,29 @@ class PlayerComputer(Player):
                             row += incrow
                             col += inccol
                         found_jumps.append(current_path)
+                    # If some jump paths were found then add them to the jumps
+                    # list
                     if len(found_jumps) > 0:
                         required_jumps += found_jumps
                     else:
-                        # This should find regular tiles to move to
+                        # Checks for regular moves in the forward direction
                         if self._player == CheckersBoard.player_1:
                             # If player is black
                             left = self._checkers.get(row+1, col+1)
                             right = self._checkers.get(row+1, col-1)
                             if left == CheckersBoard.empty:
-                                moves.append(Move(row, col, row+1, col+1))
+                                moves.append(Move(row, col, 1, 1))
                             if right == CheckersBoard.empty:
-                                moves.append(Move(row, col, row+1, col-1))
+                                moves.append(Move(row, col, 1, -1))
                         else:
                             # If player is red
                             left = self._checkers.get(row-1, col-1)
                             right = self._checkers.get(row-1, col+1)
                             if left == CheckersBoard.empty:
-                                moves.append(Move(row, col, row-1, col-1))
+                                moves.append(Move(row, col, -1, -1))
                             if right == CheckersBoard.empty:
-                                moves.append(Move(row, col, row-1, col+1))
+                                moves.append(Move(row, col, -1, 1))
+        # Calculates a random move or move path from the two built lists
         # If a move can be made we prioritize the list with possible moves
         random_index = 0
         if len(required_jumps) != 0:
@@ -116,18 +126,20 @@ class PlayerComputer(Player):
             right = self._checkers.get(row+1,col+1)
             further_left = self._checkers.get(row+2, col-2)
             further_right = self._checkers.get(row+2, col+2)
+            # Checks if the moves can be made and adds to the found jumps
             if left == other_player and further_left == CheckersBoard.empty:
-                found_jumps.append(Move(row, col, row+2, col-2))
+                found_jumps.append(Move(row, col, 1, -1))
             if right == other_player and further_right == CheckersBoard.empty:
-                found_jumps.append(Move(row, col, row+2, col+2))
+                found_jumps.append(Move(row, col, 1, 1))
         elif player == CheckersBoard.player_2:
             # If red then check row-1,col-1 and row-1,col+1
             left = self._checkers.get(row-1,col-1)
             right = self._checkers.get(row-1,col+1)
             further_left = self._checkers.get(row-2, col-2)
             further_right = self._checkers.get(row-2, col+2)
+            # Checks if the moves can be made and adds to the found jumps
             if left == other_player and further_left == CheckersBoard.empty:
-                found_jumps.append(Move(row, col, row-2, col-2))
+                found_jumps.append(Move(row, col, -1, -1))
             if right == other_player and further_right == CheckersBoard.empty:
-                found_jumps.append(Move(row, col, row-2, col+2))
+                found_jumps.append(Move(row, col, -1, 1))
         return found_jumps
