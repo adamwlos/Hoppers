@@ -94,8 +94,8 @@ class CheckersBoard:
         """
         Ruturn true iff row, col is a valid coordinate
         """
-        if(0 <= row <= self.dimension - 1):
-            if(0 <= col <= self.dimension - 1):
+        if(0 <= row and row <= self.dimension - 1):
+            if(0 <= col and col <= self.dimension - 1):
                 return True
         return False
 
@@ -210,3 +210,10 @@ class CheckersBoard:
         return count
 
 
+c = CheckersBoard()
+print(c)
+
+print(c.get(1,0))
+
+c.jump(3,0,-1,1)
+print(c)
