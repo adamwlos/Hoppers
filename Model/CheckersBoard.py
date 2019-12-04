@@ -213,8 +213,8 @@ class CheckersBoard:
         p2 = 0
         for row in range(10):
             for col in range(10):
-                for drow in range(-1, 1):
-                    for dcol in range(-1,1):
+                for drow in range(-1, 2):
+                    for dcol in range(-1,2):
                         # if self.has_move(row, col, drow, dcol, self.player_1):
                         if self.has_move(row, col, drow, dcol):
                             p1 +=1
