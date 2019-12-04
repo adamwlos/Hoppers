@@ -150,11 +150,11 @@ class CheckersBoard:
 
         # check if directions are valid for regular pieces
         if(player == self.player_1):
-            if(drow != -1 and (dcol != -1 or dcol != 1)):
+            if(drow != 1 and (dcol != -1 or dcol != 1)):
                 return False
         
         if(player == self.player_2):
-            if(drow != 1 and (dcol != -1 or dcol != 1)):
+            if(drow != -1 and (dcol != -1 or dcol != 1)):
                 return False
         
         # check if player has a valid move in direction drow, dcol
@@ -209,11 +209,3 @@ class CheckersBoard:
 
         return count
 
-
-c = CheckersBoard()
-print(c)
-
-print(c.get(1,0))
-
-c.jump(3,0,-1,1)
-print(c)
