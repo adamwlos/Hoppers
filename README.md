@@ -39,7 +39,8 @@ When a man reaches the king row (the farthest row forward), it becomes a king.
 
 **2.** If this leaves you in a position to jump another piece, you must continue to do so.
 
-**3.** The player without pieces remaining, or the player who has no move due to being blocked, loses the game.
+**3.** The player without pieces remaining, or the player who has no move due to being blocked, loses the game.
+
 
 
 
@@ -51,9 +52,11 @@ When a man reaches the king row (the farthest row forward), it becomes a king.
 Once you open our game, you'll be greeted with our menu screen. 
 Select your desired mode of play.
 ![The initial Hoppers board](https://i.imgur.com/qXsirb7.png)
+
 Now you'll see the game board. 
 Simply click on a piece to select it. 
 ![Selected piece](https://i.imgur.com/FcUPXKv.png)
+
 Then click on a space to choose where you want to move it to.
 ![Moved piece](https://i.imgur.com/qnfqsor.png)
 
