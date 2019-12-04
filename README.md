@@ -143,6 +143,7 @@ How the components of the project work together and anything else about our desi
 
 <!-- Some out of scope ideas we had that could be implemented later. -->
 Some ideas we had that could be implemented in the future:
+
 | Feature | Description |
 | :----------------- | :------------------------------------------------------------------------------------------------ |
 | Jump count tracker | When a piece is jumped over the opponent gains a piece jumped |
@@ -162,19 +163,19 @@ This will require us to make changes to the following files:
 - PlayerComputer
 - PlayerComputerKing
 
-######PlayerComputer and PlayerComputerKing
+###### PlayerComputer and PlayerComputerKing
 1. Implement a new method into the two player classes using the naming convention `_get_<difficulty>_move`. This method should return a list of moves.
 2. Update the `get_move` method to allow the user to set a players difficulty to the newly added difficulty. This simply requires you to add a new `elif` statement.
 
-######CheckersHumanVSComputer
+###### CheckersHumanVSComputer
 1. Store the difficulty as a variable
 2. Set the opponents pieces to computer players with the difficulty.
 
-######MainMenu
+###### MainMenu
 1. Inside the `create_buttons` method, draw a new button (small than the mode buttons) with a label for the difficulty you are adding.
 2. Add a method similar to `get_game_mode` that instead gets the difficulty.
 
-######Visualizer
+###### Visualizer
 1. Add in some code that checks if both the computer mode and a difficulty are selected. Difficulty can be ignored when the opponent is human.
 2. Pass the difficulty to the controller
 
