@@ -15,6 +15,7 @@ class Visualizer:
     WHITE = (255,255,255)
     RED = (210, 35, 45)
     YELLOW = (255, 225, 50)
+    CYAN = (0,255,255)
     DIMENSION = 10# Dimension of game board
     SIZE = 50 # Dimension of a grid tile
 
@@ -33,7 +34,7 @@ class Visualizer:
         pygame.init()
         self.screen = pygame.display.set_mode(self.WINDOW, pygame.HWSURFACE |
                                               pygame.DOUBLEBUF)
-        self.selected = []
+        self.selected = [-1, -1]
         self.controller = CheckersControllerHumanVSHuman()
 
     def getInput(self):
@@ -64,16 +65,40 @@ class Visualizer:
                     
                 """Draw man/king if there is one on this tile"""
                 if(board_list[row][column] == self.P1):
-                    pygame.draw.ellipse(background, self.BLACK, rect)
+                    if self.selected[0] == row and self.selected[1]==column:
+                        pygame.draw.ellipse(background, self.CYAN, rect)
+                        pygame.draw.ellipse(background, self.BLACK,
+                                            rect.inflate(-self.SIZE//5,-self.SIZE//5))
+                    else:
+                        pygame.draw.ellipse(background, self.BLACK, rect)
                 elif(board_list[row][column] == self.P2):
-                    pygame.draw.ellipse(background, self.RED, rect)
+                    if self.selected[0] == row and self.selected[1]==column:
+                        pygame.draw.ellipse(background, self.CYAN, rect)
+                        pygame.draw.ellipse(background, self.RED,
+                                            rect.inflate(-self.SIZE//5,-self.SIZE//5))
+                    else:
+                        pygame.draw.ellipse(background, self.RED, rect)
                 elif(board_list[row][column] == self.KP1):
-                    pygame.draw.ellipse(background, self.BLACK, rect)
-                    pygame.draw.ellipse(background, self.YELLOW,
+                    if self.selected[0] == row and self.selected[1]==column:
+                        pygame.draw.ellipse(background, self.CYAN, rect)
+                        pygame.draw.ellipse(background, self.BLACK,
+                                            rect.inflate(-self.SIZE//5,-self.SIZE//5))
+                        pygame.draw.ellipse(background, self.YELLOW,
+                                        rect.inflate(-self.SIZE//2, -self.SIZE//2))
+                    else:
+                        pygame.draw.ellipse(background, self.BLACK, rect)
+                        pygame.draw.ellipse(background, self.YELLOW,
                                         rect.inflate(-self.SIZE//2, -self.SIZE//2))
                 elif(board_list[row][column] == self.KP2):
-                    pygame.draw.ellipse(background, self.RED, rect)
-                    pygame.draw.ellipse(background, self.YELLOW,
+                    if self.selected[0] == row and self.selected[1]==column:
+                        pygame.draw.ellipse(background, self.CYAN, rect)
+                        pygame.draw.ellipse(background, self.RED,
+                                            rect.inflate(-self.SIZE//5,-self.SIZE//5))
+                        pygame.draw.ellipse(background, self.YELLOW,
+                                        rect.inflate(-self.SIZE//2, -self.SIZE//2))
+                    else:
+                        pygame.draw.ellipse(background, self.RED, rect)
+                        pygame.draw.ellipse(background, self.YELLOW,
                                         rect.inflate(-self.SIZE//2, -self.SIZE//2))
                     
         self.screen.blit(background, (0,0))
@@ -106,17 +131,18 @@ class Visualizer:
         return (event.dict['pos'][1]//50, event.dict['pos'][0] //50)
  
     def makeMove(self, destination: List):
-        m = Move(self.selected[0], self.selected[1], destination[0], destination[1])
+        m = Move(self.selected[0], self.selected[1],
+                 destination[0]-self.selected[0], destination[1]-self.selected[1])
         print(self.controller.play(m))
         print("from " + str(self.selected))
         print("to " + str(destination))
-        self.selected = []
+        self.selected = [-1, -1]
 
         #Todo: call controller.move() which should change the model
 
 
     def filterInput(self, location: List) -> None:
-        if self.selected == []:
+        if self.selected == [-1, -1]:
             self.selected = location
         else:
             self.makeMove(location)
