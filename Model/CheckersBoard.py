@@ -171,6 +171,10 @@ class CheckersBoard:
             player = self.get(row, col)
             player_other = self.other_player(player)
 
+        # check if it is player's turn
+        if(player != self.turn):
+            return False
+
         # check if direction drow, dcol are valid
         if(-1 != drow and drow != 1 and -1 != dcol and dcol != 1):
             return False
