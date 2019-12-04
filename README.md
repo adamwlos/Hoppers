@@ -128,7 +128,11 @@ Example of a feature that can be implemented and how someone would go about impl
 
 ## <a name="license"></a>License
 
-...
+Hoppers is distributed under the [MIT License](https://choosealicense.com/licenses/mit/).
+
+Copyright © 2019 Team_blank_290
+
+The conditions of the license are located at the root directory of the repository within the [LICENSE](https://github.com/shadowshadow725/blank/blob/master/LICENSE) file.
 
 [Back to top](#top)
 
