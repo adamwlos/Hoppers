@@ -3,7 +3,7 @@
 A recreation of the board game Checkers, made using Python and the Pygame library.
 
 ## Navigation
-<a name="navigation"></a> 
+<a name="navigation"></a>
 1. [Game Description](#description)
 2. [How to Play](#howtoplay)
 3. [Installation](#installation)
@@ -22,7 +22,27 @@ A recreation of the board game Checkers, made using Python and the Pygame librar
 
 ## <a name="description"></a>Game Description
 
-Few Short paragraphs describing how the game works and the rules
+
+Hoppers is a **2-player game** and players are on opposite side of the gameboard.
+
+In this game, only the dark squares of the checkers board is used.
+All pieces are classified into two categories:
+1. **Uncrowned pieces called pawn**
+2. **Crowned pieces called kings**
+
+**Pawn** can only move one step diagonally forwards. \
+**Kings** can move diagonally forwards and backwards. \
+When a man reaches the king row (the farthest row forward), it becomes a king.
+
+**Rules:** \
+**1.** If an opponent piece is in a place where you could normally move, and there is an empty space directly across from it, you can “jump over” it and remove the opponent’s piece.
+
+**2.** If this leaves you in a position to jump another piece, you must continue to do so.
+
+**3.** The player without pieces remaining, or the player who has no move due to being blocked, loses the game.
+
+
+
 
 [Back to top](#top)
 
