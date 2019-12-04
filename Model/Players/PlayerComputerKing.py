@@ -36,7 +36,6 @@ class PlayerComputerKing(Player):
             return either a list containing a single more or a list containing 
             multiple moves representing a path of multiple jumps.
         """
-        # Two lists keep track of regular moves and paths of possible jumps
         moves = []
         required_jumps = []
         for row in range(self._checkers.dimension):
@@ -45,11 +44,8 @@ class PlayerComputerKing(Player):
                 if self._checkers.get(row, col) == self._player:
                     path_made = False
                     found_jumps = []
-                    # i represents an option of direction to check
                     for i in range(3):
                         current_path = []
-                        # Builds a path of jumps by checking for a jump each
-                        # move
                         while (not path_made):
                             jumps = self.check_for_jump(self._player, row, col)
                             if jumps == []:
@@ -76,8 +72,6 @@ class PlayerComputerKing(Player):
                             col += inccol
                         found_jumps.append(current_path)
                     if len(found_jumps) > 0:
-                        # If there is at least one path then we append it
-                        # to the list of jumps
                         required_jumps += found_jumps
                     else:
                         # This should find regular tiles to move to
@@ -85,16 +79,14 @@ class PlayerComputerKing(Player):
                         north_east = self._checkers.get(row - 1, col + 1)
                         south_west = self._checkers.get(row + 1, col + 1)
                         south_east = self._checkers.get(row + 1, col - 1)
-                        # Checks if a move can be made in each direction
                         if north_west == CheckersBoard.empty:
-                            moves.append(Move(row, col, -1, -1))
+                            moves.append(Move(row, col, row - 1, col - 1))
                         if north_east == CheckersBoard.empty:
-                            moves.append(Move(row, col, -1, 1))
+                            moves.append(Move(row, col, row - 1, col + 1))
                         if south_west == CheckersBoard.empty:
-                            moves.append(Move(row, col, 1, 1))
+                            moves.append(Move(row, col, row + 1, col + 1))
                         if south_east == CheckersBoard.empty:
-                            moves.append(Move(row, col, 1, -1))
-        # A random move is calculated for the lists of moves
+                            moves.append(Move(row, col, row + 1, col - 1))
         # If a move can be made we prioritize the list with possible moves
         random_index = 0
         if len(required_jumps) != 0:
@@ -123,12 +115,12 @@ class PlayerComputerKing(Player):
 
         # Checks if a jump is possible and adds the possible Move to the list
         if north_west == other_player and further_nw == CheckersBoard.empty:
-            found_jumps.append(Move(row, col, -1, -1))
+            found_jumps.append(Move(row, col, row-2, col-2))
         if north_east == other_player and further_ne == CheckersBoard.empty:
-            found_jumps.append(Move(row, col, -1, 1))
+            found_jumps.append(Move(row, col, row-2, col+2))
         if south_west == other_player and further_sw == CheckersBoard.empty:
-            found_jumps.append(Move(row, col, 1, -1))
+            found_jumps.append(Move(row, col, row+2, col-2))
         if south_east == other_player and further_se == CheckersBoard.empty:
-            found_jumps.append(Move(row, col, 1, 1))
+            found_jumps.append(Move(row, col, row+2, col+2))
         
         return found_jumps
