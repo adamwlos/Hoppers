@@ -49,16 +49,18 @@ When a man reaches the king row (the farthest row forward), it becomes a king.
 
 ## <a name="howtoplay"></a>How to Play
 
-Once you open our game, you'll be greeted with our menu screen. 
+Once you open our game, you'll be greeted with our menu screen.
+![Main menu](https://i.imgur.com/gTeMWQs.png =400x400)
+
 Select your desired mode of play.
-![The initial Hoppers board](https://i.imgur.com/qXsirb7.png)
+![The initial Hoppers board](https://i.imgur.com/qXsirb7.png =400x400)
 
 Now you'll see the game board. 
 Simply click on a piece to select it. 
-![Selected piece](https://i.imgur.com/FcUPXKv.png)
+![Selected piece](https://i.imgur.com/FcUPXKv.png =400x400)
 
 Then click on a space to choose where you want to move it to.
-![Moved piece](https://i.imgur.com/qnfqsor.png)
+![Moved piece](https://i.imgur.com/qnfqsor.png =400x400)
 
 [Back to top](#top)
 
