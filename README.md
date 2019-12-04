@@ -50,7 +50,7 @@ It is recommended that you have the following installed before downloading our g
 [Back to top](#top)
 
 #### <a name="windows"></a>For `Windows`
-Install Git for windows [here](https://git-scm.com/download/win)
+Install Git for windows [here](https://git-scm.com/download/win)\
 Install Python3 for windows [here](https://www.python.org/downloads/windows/)
 
 Install Pygame:
@@ -76,7 +76,7 @@ pip3 install python-pygame
 
 Optional: Install the homebrew package manager [here](https://brew.sh/).
 
-Install Git for Mac OS X [here](https://git-scm.com/download/mac)
+Install Git for Mac OS X [here](https://git-scm.com/download/mac)\
 Install Python3 for Mac OS X [here](https://www.python.org/downloads/mac-osx/)
 `Pip3` comes with Python3
 
