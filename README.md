@@ -4,7 +4,8 @@ A recreation of the board game Checkers, made using Python and the Pygame librar
 
 ## Navigation
 <a name="navigation"></a> 
-1. [Game Description](#description) 
+1. [Game Description](#description)
+2. [How to Play](#howtoplay)
 3. [Installation](#installation)
     - [Pre-Installation](@preinstallation)
         - [For Windows](#windows)
