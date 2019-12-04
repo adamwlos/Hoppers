@@ -50,6 +50,7 @@ When a man reaches the king row (the farthest row forward), it becomes a king.
 ## <a name="howtoplay"></a>How to Play
 
 Once you open our game, you'll be greeted with our menu screen.
+
 <img src="https://i.imgur.com/gTeMWQs.png" width="400" height="400">
 
 Select your desired mode of play.
@@ -58,9 +59,11 @@ Select your desired mode of play.
 
 Now you'll see the game board. 
 Simply click on a piece to select it.
+
 <img src="https://i.imgur.com/FcUPXKv.png" width="400" height="400">
 
 Then click on a space to choose where you want to move it to.
+
 <img src="https://i.imgur.com/qnfqsor.png" width="400" height="400">
 
 [Back to top](#top)
