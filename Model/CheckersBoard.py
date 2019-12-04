@@ -4,7 +4,7 @@ class CheckersBoard:
     empty = " "
     player_1 = "X"
     player_2 = "O"
-
+    #
     def __init__(self):
         """
         Contains properties of CheckersBoard including dimensions, player

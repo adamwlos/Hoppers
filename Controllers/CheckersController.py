@@ -28,7 +28,7 @@ class CheckersController:
             + str(self.checkers.get_count(self.checkers.board.player_1)) + "pieces on board" + "\n"\
             + self.checkers.board.player_2 + "has: " + str(self.checkers.get_count(self.checkers.board.player_2)) \
             + "pieces on board" + "\n" + "The winner is:" + self.checkers.get_winner() + "\n"
-
+        #
         print(s)
 
     def report_curr_move(self, player, move):

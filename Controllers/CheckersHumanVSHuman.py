@@ -7,7 +7,7 @@ class CheckersControllerHumanVSHuman(CheckersController):
 
     player1: PlayerHuman
     player2: PlayerHuman
-
+    #
 
     def __init__(self):
         super().__init__( Checkers(CheckersBoard()))
