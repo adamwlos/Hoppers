@@ -141,7 +141,42 @@ How the components of the project work together and anything else about our desi
 
 ## <a name="extending"></a>Extending the Game
 
+<!-- Some out of scope ideas we had that could be implemented later. -->
+Some ideas we had that could be implemented in the future:
+| Feature | Description |
+| :----------------- | :------------------------------------------------------------------------------------------------ |
+| Jump count tracker | When a piece is jumped over the opponent gains a piece jumped |
+| Improved sprites | Improved sprites of pieces |
+| Turn timer | A time limit for the player that decreases on their turn. Once a player's timer ends, the opponent wins |
+| Harder computer modes | Harder HumanVSComputer modes with more advanced algorithms for finding paths of possible jumps |
+| Account creation | Lets the user create an account |
+| Games played history | A history linked to each account that keeps track of the games a user played |
+<!-- Example of a feature that can be implemented and how someone would go about implementing it. -->
 
+#### Example of an Extension
+
+As an example, we will go through the process of adding in a new HumanVSComputer difficulty level.\
+This will require us to make changes to the following files:
+- MainMenu
+- CheckersHumanVSComputer
+- PlayerComputer
+- PlayerComputerKing
+
+######PlayerComputer and PlayerComputerKing
+1. Implement a new method into the two player classes using the naming convention `_get_<difficulty>_move`. This method should return a list of moves.
+2. Update the `get_move` method to allow the user to set a players difficulty to the newly added difficulty. This simply requires you to add a new `elif` statement.
+
+######CheckersHumanVSComputer
+1. Store the difficulty as a variable
+2. Set the opponents pieces to computer players with the difficulty.
+
+######MainMenu
+1. Inside the `create_buttons` method, draw a new button (small than the mode buttons) with a label for the difficulty you are adding.
+2. Add a method similar to `get_game_mode` that instead gets the difficulty.
+
+######Visualizer
+1. Add in some code that checks if both the computer mode and a difficulty are selected. Difficulty can be ignored when the opponent is human.
+2. Pass the difficulty to the controller
 
 [Back to top](#top)
 
