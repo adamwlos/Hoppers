@@ -104,7 +104,7 @@ class Visualizer:
     def getGridPosition(self, event) -> Tuple:
 
         return (event.dict['pos'][1]//50, event.dict['pos'][0] //50)
-
+ 
     def makeMove(self, destination: List):
         m = Move(self.selected[0], self.selected[1], destination[0], destination[1])
         print(self.controller.play(m))

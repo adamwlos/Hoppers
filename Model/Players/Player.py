@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from Model.Move import Move
 from Model.Checkers import Checkers
-
+#
 class Player(ABC):
     """ Player serves as parent class to PlayerHuman, PlayerKing, 
         PlayerComputer, and PlayerKingComputer. This class is not for in game 

@@ -1,4 +1,4 @@
-from Player import Player
+from Model.Players.Player import Player
 from Model.Move import Move
 import random
 from Model.CheckersBoard import CheckersBoard

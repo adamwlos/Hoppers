@@ -3,7 +3,7 @@ from Model.CheckersBoard import CheckersBoard
 
 class Checkers:
     board: CheckersBoard
-
+    #
     def __init__(self, board):
         self.board = board
         self.whos_turn = self.board.player_1

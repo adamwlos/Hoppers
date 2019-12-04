@@ -39,7 +39,7 @@ class MainMenu:
             the user clicked a button.
         """
         return (event.dict['pos'][0], event.dict['pos'][1])
-
+#
     def quit(self):
         """ Closes the screen when it is no longer needed.
         """

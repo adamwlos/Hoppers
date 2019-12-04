@@ -9,7 +9,9 @@ class Move:
     _row: int
     _col: int
 
+
     def __init__(self, row: int, col: int, drow: int, dcol: int):
+
         self._row = row
         self._col = col
         self._final_row = drow

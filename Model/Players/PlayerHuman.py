@@ -14,7 +14,10 @@ class PlayerHuman(Player):
         self._player = player
         self._checkers = checkers
 
+
     def get_move(self, row: int, col: int, drow: int, dcol: int):
+
+
         """ Pygame will retrieve the coordinates of the tile and pass those 
         into getMove to return a Move object.   
         """
