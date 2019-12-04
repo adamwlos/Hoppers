@@ -56,7 +56,7 @@ class CheckersBoard:
                             
                     
     def __str__(self):
-         '''
+        '''
         Return the string representation of the game board
         '''
         current_board = ''
@@ -176,9 +176,12 @@ class CheckersBoard:
             for col in range(10):
                 for drow in range(-1, 1):
                     for dcol in range(-1,1):
-                        if self.has_move(row, col, drow, dcol, self.player_1):
+                        # if self.has_move(row, col, drow, dcol, self.player_1):
+                        if self.has_move(row, col, drow, dcol):
                             p1 +=1
-                        elif self.has_move(row, col, drow, dcol, self.player_2):
+                        # elif self.has_move(row, col, drow, dcol, self.player_2):
+
+                        elif self.has_move(row, col, drow, dcol):
                             p2 +=1
         if p1 == 0 and p2 == 0:
             return CheckersBoard.empty

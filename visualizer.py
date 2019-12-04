@@ -24,7 +24,7 @@ class Visualizer:
 
     #===Instance Variables===
     screen: pygame.Surface
-
+    
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(self.WINDOW, pygame.HWSURFACE |

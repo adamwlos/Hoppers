@@ -1,4 +1,4 @@
-from Player import Player
+from Model.Players.Player import Player
 from Model.Move import Move
 from Model.Checkers import Checkers
 
