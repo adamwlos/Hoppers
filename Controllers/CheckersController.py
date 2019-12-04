@@ -42,17 +42,17 @@ class CheckersController:
         move = move
         if players_turn == self.checkers.board.player_1:
             # move = self.player1.get_move()
-            self.report_curr_move(players_turn, move)
-
             t = self.checkers.jump(move.get_row(), move.get_col(), move.get_drow(), move.get_dcol())
+            self.report_curr_move(players_turn, move)
             self.report()
+            print('nmsl1')
             return t
         elif players_turn == self.checkers.board.player_2:
             # move = self.player2.get_move()
-            self.report_curr_move(players_turn, move)
-
             t = self.checkers.jump(move.get_row(), move.get_col(), move.get_drow(), move.get_dcol())
+            self.report_curr_move(players_turn, move)
             self.report()
+            print('nmsl2')
             return t
         # self.report_final_game_results()
 

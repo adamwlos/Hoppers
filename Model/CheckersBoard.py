@@ -131,14 +131,15 @@ class CheckersBoard:
                 if(piece == self.player_1 or piece == self.player_2):
                     # for each direction check if player can take over the opponents piece
                     if(self.has_move(row + 2*drow, col + 2*dcol, drow, dcol) == True):
-                        if(self.get(row + 3*drow, col + 3*dcol) == self.other_player(piece)):
+                        if(self.get(row + 2*drow, col + 2*dcol) == self.other_player(piece)):
                             moves_available += 1
 
                     if(self.has_move(row + 2*drow, col + 2*dcol, drow, (-1)*dcol) == True):
                         if(self.get(row + 2*drow + drow, col + 2*dcol + (-1)*dcol) == self.other_player(piece)):
                             moves_available += 1
+
                 # change turn to other players turn if player has no more moves if its a king piece    
-                else:
+                elif piece != self.empty:
                     if(self.has_move(row + 2*drow, col + 2*dcol, drow, dcol) == True):
                         if(self.get(row + 2*drow + drow, col + 2*dcol + dcol) == self.other_player(piece)):
                             moves_available += 1
@@ -155,11 +156,10 @@ class CheckersBoard:
                         if(self.get(row + 2*drow + (-1)*drow, col + 2*dcol + (-1)*dcol) == self.other_player(piece)):
                             moves_available += 1
 
-                    if(moves_available == 0):        
-                        self.turn = self.other_player(piece)
+            if(moves_available == 0):
+                self.turn = self.other_player(piece)
 
-                
-                return True
+
 
 
     def has_move(self, row, col, drow, dcol):
