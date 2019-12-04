@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8778f4cd-abcc-4c17-8c87-a089291681bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/blank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Players/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Players/Player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Players/PlayerComputer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Players/PlayerComputer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Players/PlayerComputerKing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Players/PlayerComputerKing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Players/PlayerHuman.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Players/PlayerHuman.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Players/PlayerKing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Players/PlayerKing.py" afterDir="false" />
-    </list>
+    <list default="true" id="8778f4cd-abcc-4c17-8c87-a089291681bf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/Model/Players/Player.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -397,7 +388,7 @@
     <entry file="file://$PROJECT_DIR$/Model/Players/Player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>

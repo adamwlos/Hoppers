@@ -86,8 +86,8 @@ Use the following commands to install the required software:
 ```bash
 Sudo apt-get install git
 Sudo apt-get install python3
-Sudo apt-get install pip3
-pip3 install python-pygame
+Sudo apt-get install python3-pip3
+pip3 install python3-pygame
 ```
 
 [Back to top](#top)
@@ -103,8 +103,8 @@ Install Python3 for Mac OS X [here](https://www.python.org/downloads/mac-osx/)
 Use the following commands to install the required software:
 ```bash
 brew install git
-brew install python
-pip3 install python-pygame
+brew install python3
+pip3 install python3-pygame
 ```
 
 [Back to top](#top)
