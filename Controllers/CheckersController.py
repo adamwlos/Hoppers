@@ -32,7 +32,7 @@ class CheckersController:
         print(s)
 
     def report_curr_move(self, player, move):
-        s = player + "moved to" + "(" + str(move.get_final_row()) + ", " + str(move.get_final_col()) + ")"
+        s = player + " moved in the direction: " + "<" + str(move.get_drow()) + ", " + str(move.get_dcol()) + ">"
         print(s)
 
     def play(self, move):
