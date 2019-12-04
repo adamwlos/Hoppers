@@ -141,22 +141,7 @@ How the components of the project work together and anything else about our desi
 
 ## <a name="extending"></a>Extending the Game
 
-Maybe you'd like to try extending our project? Here are a few ideas that we had for extra features which we never got around to implementing.
 
-- More difficulties for the computer player
-- Creating image assets and using them to show the game elements rather than using Pygame's built in drawing functionality
-
-Here is an example of how you can add a new computer player difficulty to our game.  Assuming you've come up with an algorithm for finding 
-the moves for the difficulty, first create a new private method in our PlayerComputer and PlayerKing classes which returns a list of Move 
-objects. eg:_get_new_difficulty_move(self).  Take a look at the Move class in our Models folder to learn how to create Move objects. Then 
-navigate to our get_move() method in the PlayerComputer and PlayerKing classes. Decide on any integer to represent your new difficulty, 
-(Our difficulty uses 0, so make sure not to use that) and add a block to the if statement which checks if the difficulty variable 
-corresponds to yours. Then simply return the value of your new private method in this block.
-
-Or maybe you want to improve the look of our game with your own pictures? Go ahead and open up our visualizer class. This class is the only 
-one concerned with rendering the game, so no need to worry about switching between multiple classes! Our create_board() method updates the 
-screen with a new board by drawing the grid tiles and the pieces on top. To change the look of the pieces, simply replace each call of 
-pygame.draw.ellipse() with logic to draw your own picture in the corresponding space.
 
 [Back to top](#top)
 
