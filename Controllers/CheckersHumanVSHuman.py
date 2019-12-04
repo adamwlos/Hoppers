@@ -16,6 +16,5 @@ class CheckersControllerHumanVSHuman(CheckersController):
 
 
 if __name__ == "__main__":
-    checkers = Checkers
     checkersHvsH = CheckersControllerHumanVSHuman()
     checkersHvsH.play()

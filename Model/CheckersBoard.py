@@ -113,6 +113,7 @@ class CheckersBoard:
         # check if piece has move and modify the board if it does
         if(self.has_move(row, col, drow, dcol) == False):
             return False
+
         else:
             if(self.get(row + drow, col + dcol) == self.empty):
                 piece = self.get(row, col)

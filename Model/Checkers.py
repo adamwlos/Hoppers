@@ -1,8 +1,8 @@
-from Model import CheckersBoard
+from Model.CheckersBoard import CheckersBoard
 
 
 class Checkers:
-    board = CheckersBoard
+    board: CheckersBoard
 
     def __init__(self, board):
         self.board = board
@@ -14,7 +14,7 @@ class Checkers:
     def jump(self, row, col, drow, dcol):
         player = self.get_whos_turn()
         if player != self.board.empty:
-            if self.board.jump(row, col, drow, dcol, player):
+            if self.board.jump(row, col, drow, dcol):
                 if self.is_gameover():
                     self.whos_turn = self.board.empty
                 elif self.board.who_has_move() ==self.board.both:
