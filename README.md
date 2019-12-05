@@ -140,7 +140,9 @@ The game may also be made into an executable or app file using your choice of th
 
 ## <a name="documentation"></a>Documentation
 
-Some detail about what we used (mvc, pygame, python, etc)
+- Hoppers is made using the programming language Python.
+- For the visuals of Hoppers we used Python's Pygame library to assist in rendering shapes and taking in user input.
+- For this project we made us of the Model-View-Controller design pattern.
 
 #### <a name="projdir"></a> Project Directory Structure
 
