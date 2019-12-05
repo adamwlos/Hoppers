@@ -150,16 +150,16 @@ How are repository is structured into folders/classes
 
 #### <a name="overview"></a> Overview of Code
 
-The design pattern being used is the Model-View-Controller.
-Components of MVC and how they interact:
+The design pattern being used is the Model-View-Controller.\
+Components of MVC and how they interact:\
 Model:
 - CheckersBoard generates initial board and contains all functions necessary to play the game
 - Checkers class contains CheckersBoard and calls its functions to play the game
-- Computer Players use model classes to find moves
+- Computer Players use model classes to find moves\
 Controllers:
 - store player1 and player2 as player types
 - has Checkers game object
-- interacts with Checkers and Player classes
+- interacts with Checkers and Player classes\
 View:
 - generates and stores the appropriate controller once mode is selected
 - displays board to player
