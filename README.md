@@ -243,7 +243,7 @@ Below are paragraphs for each members to describe their contributions to the pro
 
 ##### Zuhair Syed
 
-...
+I was tasked with completing the CheckersBoard class. I completed all the functions and made sure that they were running properly. I made sure that the functions played through the game without errors. I also helped fix bugs that arose due to functions in the CheckersBoard not running properly with the other classes. For the README file, I completed the overview section talking about the design pattern being used and how the different components interact. 
 
 ##### Yu-Chieh Wu (Sunny)
 
