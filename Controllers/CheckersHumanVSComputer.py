@@ -20,16 +20,16 @@ class CheckersControllerHumanVSComputer(CheckersController):
                                                                     difficulty)
         self.difficulty = difficulty
 
-    def play(self):
+    def play(self, move):
         """ Runs the game loop for human vs computer mode. Until the game is
             over, we continue requesting moves from the user or from the
             computers get move method.
         """
+        move = move
         while not self.checkers.is_gameover():
             players_turn = self.checkers.get_whos_turn()
             if players_turn == self.checkers.board.player_1:
                 # This will need params from the visualizer
-                move = self.player2.get_move()
                 self.checkers.jump(move.get_row(), move.get_col(), 1, 1)
             elif players_turn == self.checkers.board.player_2:
                 # Gets a list of moves unlike for PlayerHuman
@@ -37,5 +37,6 @@ class CheckersControllerHumanVSComputer(CheckersController):
                 # If loops through the move/move path and makes the moves
                 if len(moves) > 0:
                     for move in moves:
-                       self.checkers.jump(move.get_row, move.get_col, 
+                        print(move)
+                        self.checkers.jump(move.get_row, move.get_col, 
                                             move.get_drow, move.get_dcol) 
