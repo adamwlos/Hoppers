@@ -250,7 +250,7 @@ Below are paragraphs for each members to describe their contributions to the pro
 
 ##### Adam Wloszczak
 
-...
+My contributions to our Hoppers game were making the player related classes found in the player folder under models. Additionally, I also worked on the controller for the human vs computer game mode. Unfortunately, at the time of writing this we are experiencing some bugs with the computer mode. I also made the main menu class to give us the ability to select game modes. Aside from the player and computer related classes I helped find and fix bugs with the team in classes such as checkers, visualizer, and the controllers. For my contributions to the README file, I worked on an initial layout with breif guidelines, the installation section, the guide on extending the game, and the licensing information.
 
 ##### Zuhair Syed
 
