@@ -6,7 +6,14 @@ class Checkers:
     #
     def __init__(self, board):
         self.board = board
+        self.dimension = 10
         self.whos_turn = self.board.player_1
+
+    def get(self, row, col):
+        return self.board.get(row, col)
+
+    def other_player(self, player):
+        return self.board.other_player(player)
 
     def get_whos_turn(self):
         return self.whos_turn
