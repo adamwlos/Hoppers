@@ -258,7 +258,7 @@ I was tasked with completing the CheckersBoard class. I completed all the functi
 
 ##### Yu-Chieh Wu (Sunny)
 
-...
+I’m tasked with action listeners and the visualizers. I completed the user input filtering and was also responsible for transferring user inputs to the controller and model. I worked on fixing import issues after refactoring and most last minutes bug fixes. I completed the project directory structure in the readme file.
 
 ##### Xinhao Hou (Andy)
 
