@@ -188,8 +188,9 @@ class CheckersBoard:
         if(self.get(row, col) == self.empty):
             return False
         else:
-            player = self.get(row, col)
-            player_other = self.other_player(player)
+            piece = self.get(row, col)
+            player_other = self.other_player(piece)
+            player = self.other_player(player_other)
 
         # check if it is player's turn
         if(player != self.turn):
@@ -200,11 +201,11 @@ class CheckersBoard:
             return False
 
         # check if directions are valid for regular pieces
-        if(player == self.player_1):
+        if(piece == self.player_1):
             if(drow != 1 and (dcol != -1 or dcol != 1)):
                 return False
         
-        if(player == self.player_2):
+        if(piece == self.player_2):
             if(drow != -1 and (dcol != -1 or dcol != 1)):
                 return False
         
