@@ -57,7 +57,7 @@ Select your desired mode of play.
 
 <img src="https://i.imgur.com/qXsirb7.png" width="400" height="400">
 
-Now you'll see the game board. 
+Now you'll see the game board.
 Simply click on a piece to select it.
 
 <img src="https://i.imgur.com/FcUPXKv.png" width="400" height="400">
@@ -146,7 +146,7 @@ Some detail about what we used (mvc, pygame, python, etc)
 
 How are repository is structured into folders/classes
 
-This project is structured in model view controller form. 
+This project is structured in model view controller form.
 - Controller is located [here](https://github.com/shadowshadow725/blank/tree/master/Controllers)
 - The player class are located [here](https://github.com/shadowshadow725/blank/tree/master/Model/Players)
 - View is located [here](https://github.com/shadowshadow725/blank/blob/master/visualizer.py)
@@ -254,19 +254,19 @@ Below are paragraphs for each members to describe their contributions to the pro
 
 ##### Zuhair Syed
 
-I was tasked with completing the CheckersBoard class. I completed all the functions and made sure that they were running properly. I made sure that the functions played through the game without errors. I also helped fix bugs that arose due to functions in the CheckersBoard not running properly with the other classes. For the README file, I completed the overview section talking about the design pattern being used and how the different components interact. 
+I was tasked with completing the CheckersBoard class. I completed all the functions and made sure that they were running properly. I made sure that the functions played through the game without errors. I also helped fix bugs that arose due to functions in the CheckersBoard not running properly with the other classes. For the README file, I completed the overview section talking about the design pattern being used and how the different components interact.
 
 ##### Yu-Chieh Wu (Sunny)
 
-I’m tasked with action listeners and the visualizers. I completed the user input filtering and was also responsible for transferring user inputs to the controller and model. I worked on fixing import issues after refactoring and most last minutes bug fixes. I completed the project directory structure in the readme file.
+I'm responsible for implementing the model of this game, which is the Hoppers game itself. I'm also implementing the controllers for Hoppers. I designed the structures of those classes and completed all functions. Used functions from the Board class as well. As for the README file, I completed the Game Description part.
 
 ##### Xinhao Hou (Andy)
 
-...
+I’m tasked with action listeners and the visualizers. I completed the user input filtering and was also responsible for transferring user inputs to the controller and model. I worked on fixing import issues after refactoring and most last minutes bug fixes. I completed the project directory structure in the readme file.
 
 ##### Ronald Chen
 
-I was mainly responsible for the logic in the visualizer object concerned with rendering the game and game elements from the model object's data . 
+I was mainly responsible for the logic in the visualizer object concerned with rendering the game and game elements from the model object's data .
 I also helped with connecting the view and controller objects together, and general bugfixing concerning all parts of the code.
 
 [Back to top](#top)
