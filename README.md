@@ -255,6 +255,7 @@ Below are paragraphs for each members to describe their contributions to the pro
 
 ##### Ronald Chen
 
-...
+I was mainly responsible for the logic in the visualizer object concerned with rendering the game and game elements from the model object's data . 
+I also helped with connecting the view and controller objects together, and general bugfixing concerning all parts of the code.
 
 [Back to top](#top)
