@@ -5,6 +5,7 @@ from Controllers.CheckersHumanVSHuman import CheckersControllerHumanVSHuman
 from Model.Move import Move
 from Model.Checkers import Checkers
 from Model.CheckersBoard import CheckersBoard
+from Controllers.CheckersHumanVSComputer import CheckersControllerHumanVSComputer
 class Visualizer:
 
 
@@ -173,6 +174,11 @@ if __name__ == "__main__":
     
     # Open and run the hoppers game
     visualizer = Visualizer()
+    if game_mode == "HumanVSHuman":
+        visualizer.controller = CheckersControllerHumanVSHuman()
+    else:
+        visualizer.controller = CheckersControllerHumanVSComputer()
+        
     # board = [[" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
     #          ["X", " ", "X", " ", "X", " ", "X", " ", "X", " "],
     #          [" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
