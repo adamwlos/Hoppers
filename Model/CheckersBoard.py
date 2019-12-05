@@ -77,7 +77,11 @@ class CheckersBoard:
         """
         if(player == self.player_1):
             return self.player_2
-        if (player == self.player_2):
+        if(player == self.player_2):
+            return self.player_1
+        if(player == self.player_1_king):
+            return self.player_2
+        if(player == self.player_2_king):
             return self.player_1
         return self.empty
 
