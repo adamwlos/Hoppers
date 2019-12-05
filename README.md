@@ -70,9 +70,7 @@ Then click on a space to choose where you want to move it to.
 
 ## <a name="installation"></a>Installation
 
-For an easy installation you can download the executable [here](https://github.com/shadowshadow725/blank/releases/latest)
-
-If you would rather get the source code and run it manually then follow the steps below:
+In order to get the source code and run Hoppers, follow the instructions below:
 
 #### <a name="preinstallation"></a>Pre-Installation
 
@@ -146,7 +144,7 @@ The game may also be made into an executable or app file using your choice of th
 
 #### <a name="projdir"></a> Project Directory Structure
 
-How are repository is structured into folders/classes
+How the repository is structured into folders/classes
 
 This project is structured in model view controller form.
 - Controller is located [here](https://github.com/shadowshadow725/blank/tree/master/Controllers)
@@ -161,17 +159,17 @@ The visualizer houses the controller and the controller houses the model.  The c
 
 #### <a name="overview"></a> Overview of Code
 
-The design pattern being used is the Model-View-Controller.\
-Components of MVC and how they interact:\
+The design pattern being used is the Model-View-Controller.
+Components of MVC and how they interact:
 Model:
 - CheckersBoard generates initial board and contains all functions necessary to play the game
 - Checkers class contains CheckersBoard and calls its functions to play the game
-- Computer Players use model classes to find moves\
+- Computer Players use model classes to find moves
 
 Controllers:
 - store player1 and player2 as player types
 - has Checkers game object
-- interacts with Checkers and Player classes\
+- interacts with Checkers and Player classes
 
 View:
 - generates and stores the appropriate controller once mode is selected
@@ -248,7 +246,7 @@ The following members contributed to this project:
 
 ## <a name="contributions"></a>Member Contributions
 
-Below are paragraphs for each members to describe their contributions to the project:
+Below are paragraphs where each members describes their contributions to the project:
 
 ##### Adam Wloszczak
 
