@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="ae301a57-6b3e-494a-9a41-511be789baf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/blank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
-=======
     <list default="true" id="8778f4cd-abcc-4c17-8c87-a089291681bf" name="Default Changelist" comment="" />
->>>>>>> 6b24c3cc8c3e3841e6d7e51e54fe02a790defff3
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-=======
+
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -67,7 +58,7 @@
       </file>
     </leaf>
   </component>
->>>>>>> 6b24c3cc8c3e3841e6d7e51e54fe02a790defff3
+
   <component name="FindInProjectRecents">
     <findStrings>
       <find>jump</find>
@@ -76,8 +67,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-=======
+
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -138,7 +128,7 @@
       <pane id="Course" />
     </panes>
   </component>
->>>>>>> 6b24c3cc8c3e3841e6d7e51e54fe02a790defff3
+
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -283,9 +273,9 @@
     <configuration />
   </component>
   <component name="TaskManager">
-<<<<<<< HEAD
+
     <servers />
-=======
+
     <task active="true" id="Default" summary="Default task">
       <changelist id="8778f4cd-abcc-4c17-8c87-a089291681bf" name="Default Changelist" comment="" />
       <created>1575483538923</created>
@@ -410,6 +400,6 @@
         </state>
       </provider>
     </entry>
->>>>>>> 6b24c3cc8c3e3841e6d7e51e54fe02a790defff3
+
   </component>
 </project>
