@@ -268,3 +268,22 @@ class CheckersBoard:
 
         return count
 
+    def king_piece(self, row, col):
+        """
+        If a piece is on the opposite last row change it to a king piece
+        Return true if piece is changed to king
+        """
+        if(self.valid_coordinate(row, col) == False):
+            return False
+        piece = self.get(row, col)
+        # if player 1 piece is at last row on opposite side of board, king it
+        if(piece == self.player_1):
+            if(row == 9):
+                self.board[row][col] = self.player_1_king
+                return True
+        # if player 2 piece is at last row on opposite side of board, king it
+        if(piece == self.player_2):
+            if(row == 0):
+                self.board[row][col] = self.player_2_king
+                return True
+        return False
