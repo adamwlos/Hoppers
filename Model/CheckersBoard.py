@@ -162,8 +162,10 @@ class CheckersBoard:
                         if(self.get(row + 2*drow + (-1)*drow, col + 2*dcol + (-1)*dcol) == self.other_player(piece)):
                             moves_available += 1
 
-            if(moves_available == 0):
-                self.turn = self.other_player(piece)
+                    if(moves_available == 0):
+                        self.turn = self.other_player(piece)
+
+                return True
 
 
 
