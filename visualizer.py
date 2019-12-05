@@ -177,7 +177,7 @@ if __name__ == "__main__":
     if game_mode == "HumanVSHuman":
         visualizer.controller = CheckersControllerHumanVSHuman()
     else:
-        visualizer.controller = CheckersControllerHumanVSComputer()
+        visualizer.controller = CheckersControllerHumanVSComputer(0)
         
     # board = [[" ", "X", " ", "X", " ", "X", " ", "X", " ", "X"],
     #          ["X", " ", "X", " ", "X", " ", "X", " ", "X", " "],
