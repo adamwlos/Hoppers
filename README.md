@@ -1,4 +1,4 @@
-# <a name="top"></a> Hoppers
+﻿# <a name="top"></a> Hoppers
 
 A recreation of the board game Checkers, made using Python and the Pygame library.
 
@@ -145,6 +145,15 @@ Some detail about what we used (mvc, pygame, python, etc)
 #### <a name="projdir"></a> Project Directory Structure
 
 How are repository is structured into folders/classes
+
+This project is structured in model view controller form. 
+- Controller is located [here](https://github.com/shadowshadow725/blank/tree/master/Controllers)
+-- The player class are located [here](https://github.com/shadowshadow725/blank/tree/master/Model/Players)
+- View is located [here](https://github.com/shadowshadow725/blank/blob/master/visualizer.py)
+- Model is located [here](https://github.com/shadowshadow725/blank/tree/master/Model)
+
+The visualizer houses the controller and the controller houses the model.  The controller gathers and filters user inputs and passes the input into the controller. The controller then checks the input and passes it to the model which houses all the low-level function. After user input is passed to the model, the visualizer attempts to update the UI and waits for the next user inputs.
+
 
 [Back to top](#top)
 
