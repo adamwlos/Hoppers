@@ -213,6 +213,19 @@ class CheckersBoard:
             return False
 
         
+    def has_overtake(self, row, col, drow, dcol):
+        """
+        Return True if piece at row col has a move in direction drow dcol
+        only if it can take an opponents piece
+        """
+        piece = self.get(row, col)
+        other_piece = self.other_player(piece)
+        if(self.has_move(row, col, drow, dcol) == True):
+            if(self.get(row + drow, col + dcol) == other_piece):
+                if(self.get(row + 2*drow, col + 2*dcol) == self.empty):
+                    return True
+        else: 
+            return False
 
         
 
