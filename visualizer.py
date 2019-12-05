@@ -132,8 +132,29 @@ class Visualizer:
         return (event.dict['pos'][1]//50, event.dict['pos'][0] //50)
  
     def makeMove(self, destination: List):
-        m = Move(self.selected[0], self.selected[1],
-                 destination[0]-self.selected[0], destination[1]-self.selected[1])
+        curr_x = self.selected[0]
+        curr_y = self.selected[1]
+        move_x = destination[0]
+        move_y = destination[1]
+        move_dx = destination[0]-self.selected[0]
+        move_dy = destination[1]-self.selected[1]
+        if move_dx == 2 and move_dy == 2:
+            move_dx = 1
+            move_dy = 1
+        if move_dx == 2 and move_dy == -2:
+            move_dx = 1
+            move_dy = -1
+        if move_dx == -2 and move_dy == 2:
+            move_dx = -1
+            move_dy = 1
+        if move_dx == -2 and move_dy == -2:
+            move_dx = -1
+            move_dy = -1
+        if move_dx >= 2 or move_dx <= -2 or move_dy >= 2 or move_dy <= -2:
+            self.selected = [-1, -1]
+            return
+        m = Move(curr_x, curr_y, move_dx, move_dy)
+
         print(self.controller.play(m))
         print("from " + str(self.selected))
         print("to " + str(destination))
@@ -142,8 +163,11 @@ class Visualizer:
         #Todo: call controller.move() which should change the model
 
 
-    def filterInput(self, location: List) -> None:
+    def filterInput(self, location: List, board) -> None:
         if self.selected == [-1, -1]:
+            if board[location[0]][location[1]] == self.EMPTY:
+                print("empty")
+                return
             self.selected = location
         else:
             self.makeMove(location)
@@ -201,7 +225,7 @@ if __name__ == "__main__":
                 if event.type == 6:
                     if event.dict['button'] == 1:
                         print('left' + str(event.dict['pos']))
-                        visualizer.filterInput(visualizer.getGridPosition(event))
+                        visualizer.filterInput(visualizer.getGridPosition(event), board)
                         print(visualizer.getGridPosition(event))
                     elif event.dict['button'] == 3:
                         print('right' + str(event.dict['pos']))
