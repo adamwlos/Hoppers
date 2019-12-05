@@ -26,17 +26,17 @@ class CheckersControllerHumanVSComputer(CheckersController):
             computers get move method.
         """
         move = move
-        while not self.checkers.is_gameover():
-            players_turn = self.checkers.get_whos_turn()
-            if players_turn == self.checkers.board.player_1:
-                # This will need params from the visualizer
-                self.checkers.jump(move.get_row(), move.get_col(), 1, 1)
-            elif players_turn == self.checkers.board.player_2:
-                # Gets a list of moves unlike for PlayerHuman
-                moves = self.player2.get_move()
-                # If loops through the move/move path and makes the moves
-                if len(moves) > 0:
-                    for move in moves:
-                        print(move)
-                        self.checkers.jump(move.get_row, move.get_col, 
-                                            move.get_drow, move.get_dcol) 
+        #while not self.checkers.is_gameover():
+        players_turn = self.checkers.get_whos_turn()
+        if players_turn == self.checkers.board.player_1:
+            # This will need params from the visualizer
+            self.checkers.jump(move.get_row(), move.get_col(), 1, 1)
+        elif players_turn == self.checkers.board.player_2:
+            # Gets a list of moves unlike for PlayerHuman
+            moves = self.player2.get_move()
+            # If loops through the move/move path and makes the moves
+            if len(moves) > 0:
+                for move in moves:
+                    print(move)
+                    self.checkers.jump(move.get_row, move.get_col, 
+                                        move.get_drow, move.get_dcol) 
