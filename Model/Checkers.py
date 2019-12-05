@@ -15,6 +15,7 @@ class Checkers:
         player = self.get_whos_turn()
         if player != self.board.empty:
             if self.board.jump(row, col, drow, dcol):
+
                 if self.is_gameover():
                     self.whos_turn = self.board.empty
                 elif self.board.who_has_move() ==self.board.both:
@@ -22,6 +23,7 @@ class Checkers:
                 elif self.board.who_has_move() == self.board.other_player(player) \
                         and self.board.other_player(player) != self.board.empty:
                     self.whos_turn = self.board.other_player(player)
+
                 return True
         return False
 

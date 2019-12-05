@@ -32,22 +32,29 @@ class CheckersController:
         print(s)
 
     def report_curr_move(self, player, move):
-        s = player + "moved to" + "(" + str(move.get_final_row()) + ", " + str(move.get_final_col()) + ")"
+        s = player + " moved in the direction: " + "<" + str(move.get_drow()) + ", " + str(move.get_dcol()) + ">"
         print(s)
 
     def play(self, move):
         # while not self.checkers.is_gameover():
-        self.report()
+
         players_turn = self.checkers.get_whos_turn()
         move = move
         if players_turn == self.checkers.board.player_1:
             # move = self.player1.get_move()
+            t = self.checkers.jump(move.get_row(), move.get_col(), move.get_drow(), move.get_dcol())
             self.report_curr_move(players_turn, move)
-
-            return self.checkers.jump(move.get_row(), move.get_col(), move.get_drow(), move.get_dcol())
+            self.report()
+            print('nmsl1')
+            return t
         elif players_turn == self.checkers.board.player_2:
             # move = self.player2.get_move()
+            t = self.checkers.jump(move.get_row(), move.get_col(), move.get_drow(), move.get_dcol())
             self.report_curr_move(players_turn, move)
-            return self.checkers.jump(move.get_row(), move.get_col(), move.get_drow(), move.get_dcol())
+            self.report()
+            print('nmsl2')
+            return t
         # self.report_final_game_results()
+
+
 

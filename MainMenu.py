@@ -12,6 +12,7 @@ class MainMenu:
     WHITE = (255,255,255)
     BLACK = (0,0,0)
     GREY = (200,200,200)
+    GREEN = (0,150,0)
 
     def __init__(self):
         pygame.init()
@@ -52,18 +53,18 @@ class MainMenu:
         # Human VS Human
         # Human VS Computer
         rect = pygame.Rect(self.WINDOW[0]//4, 200, 250, 50)
-        pygame.draw.rect(self.screen, self.GREY, rect)
+        pygame.draw.rect(self.screen, self.GREEN, rect)
         rect = pygame.Rect(self.WINDOW[0]//4, 300, 250, 50)
-        pygame.draw.rect(self.screen, self.GREY, rect)
+        pygame.draw.rect(self.screen, self.GREEN, rect)
         self.screen.blit(self.screen, (0,0))
 
         title_font = pygame.font.SysFont("arial.ttf", 30)
-        text = title_font.render("Human VS Human", 1, self.BLACK)
+        text = title_font.render("Human VS Human", 1, self.WHITE)
         text_position = text.get_rect(centerx=self.WINDOW[0]//2, 
                                                 centery=225)
         self.screen.blit(text, text_position)
 
-        text = title_font.render("Human VS Computer", 1, self.BLACK)
+        text = title_font.render("Human VS Computer", 1, self.WHITE)
         text_position = text.get_rect(centerx=self.WINDOW[0]//2, 
                                                 centery=325)
         self.screen.blit(text, text_position)

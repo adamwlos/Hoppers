@@ -7,7 +7,7 @@ A recreation of the board game Checkers, made using Python and the Pygame librar
 1. [Game Description](#description)
 2. [How to Play](#howtoplay)
 3. [Installation](#installation)
-    - [Pre-Installation](@preinstallation)
+    - [Pre-Installation](#preinstallation)
         - [For Windows](#windows)
         - [For Linux](#linux)
         - [For Mac OS X](#macos)
@@ -39,7 +39,8 @@ When a man reaches the king row (the farthest row forward), it becomes a king.
 
 **2.** If this leaves you in a position to jump another piece, you must continue to do so.
 
-**3.** The player without pieces remaining, or the player who has no move due to being blocked, loses the game.
+**3.** The player without pieces remaining, or the player who has no move due to being blocked, loses the game.
+
 
 
 
@@ -48,8 +49,22 @@ When a man reaches the king row (the farthest row forward), it becomes a king.
 
 ## <a name="howtoplay"></a>How to Play
 
-Screenshots and breif descriptions of what they show happening
-(Use imgur to host images)
+Once you open our game, you'll be greeted with our menu screen.
+
+<img src="https://i.imgur.com/gTeMWQs.png" width="400" height="400">
+
+Select your desired mode of play.
+
+<img src="https://i.imgur.com/qXsirb7.png" width="400" height="400">
+
+Now you'll see the game board. 
+Simply click on a piece to select it.
+
+<img src="https://i.imgur.com/FcUPXKv.png" width="400" height="400">
+
+Then click on a space to choose where you want to move it to.
+
+<img src="https://i.imgur.com/qnfqsor.png" width="400" height="400">
 
 [Back to top](#top)
 
@@ -86,8 +101,8 @@ Use the following commands to install the required software:
 ```bash
 Sudo apt-get install git
 Sudo apt-get install python3
-Sudo apt-get install pip3
-pip3 install python-pygame
+Sudo apt-get install python3-pip3
+pip3 install python3-pygame
 ```
 
 [Back to top](#top)
@@ -103,8 +118,8 @@ Install Python3 for Mac OS X [here](https://www.python.org/downloads/mac-osx/)
 Use the following commands to install the required software:
 ```bash
 brew install git
-brew install python
-pip3 install python-pygame
+brew install python3
+pip3 install python3-pygame
 ```
 
 [Back to top](#top)
@@ -135,7 +150,20 @@ How are repository is structured into folders/classes
 
 #### <a name="overview"></a> Overview of Code
 
-How the components of the project work together and anything else about our design. Where someone would look if they wanted to make changes
+The design pattern being used is the Model-View-Controller.
+Components of MVC and how they interact:
+Model:
+- CheckersBoard generates initial board and contains all functions necessary to play the game
+- Checkers class contains CheckersBoard and calls its functions to play the game
+- Computer Players use model classes to find moves
+Controllers:
+- store player1 and player2 as player types
+- has Checkers game object
+- interacts with Checkers and Player classes
+View:
+- generates and stores the appropriate controller once mode is selected
+- displays board to player
+
 
 [Back to top](#top)
 
