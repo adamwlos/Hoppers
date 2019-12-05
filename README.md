@@ -148,7 +148,7 @@ How are repository is structured into folders/classes
 
 This project is structured in model view controller form. 
 - Controller is located [here](https://github.com/shadowshadow725/blank/tree/master/Controllers)
--- The player class are located [here](https://github.com/shadowshadow725/blank/tree/master/Model/Players)
+- The player class are located [here](https://github.com/shadowshadow725/blank/tree/master/Model/Players)
 - View is located [here](https://github.com/shadowshadow725/blank/blob/master/visualizer.py)
 - Model is located [here](https://github.com/shadowshadow725/blank/tree/master/Model)
 
