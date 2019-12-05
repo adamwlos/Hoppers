@@ -13,7 +13,7 @@ class PlayerComputer(Player):
 
     def __init__(self, player: str, checkers: Checkers, difficulty: int):
         self._difficulty = difficulty
-        super.__init__(player, checkers)
+        super().__init__(player, checkers)
 
     def get_move(self):
         """ Based on what the user selected as the computers difficulty level,

@@ -6,15 +6,15 @@ from Model.Checkers import Checkers
 from Controllers.CheckersController import CheckersController
 from Model.CheckersBoard import CheckersBoard
 
-class CheckersHumanVSComputer(CheckersController):
+class CheckersControllerHumanVSComputer(CheckersController):
 
     player1: PlayerHuman
     player2: PlayerComputer
     checkers: Checkers
     difficulty: int
 
-    def __init__(self, checkers, difficulty):
-        super.__init__(checkers)
+    def __init__(self, difficulty):
+        super().__init__(Checkers(CheckersBoard()))
         self.player1 = PlayerHuman(CheckersBoard.player_1, self.checkers)
         self.player2 = PlayerComputer(CheckersBoard.player_2, self.checkers, 
                                                                     difficulty)

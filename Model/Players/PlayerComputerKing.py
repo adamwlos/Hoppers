@@ -14,7 +14,7 @@ class PlayerComputerKing(Player):
     def __init__(self, player: str, checkers: Checkers, difficulty: int):
         # _difficulty is the integer 0 or 1. 0=Easy, 1=Medium
         self._difficulty = difficulty
-        super.__init__(player, checkers)
+        super().__init__(player, checkers)
 
     def get_move(self):
         """ Based on what the user selected as the computers difficulty level,

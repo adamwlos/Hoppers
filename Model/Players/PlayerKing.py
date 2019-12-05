@@ -8,7 +8,7 @@ class PlayerKing(Player):
     """
 
     def __init__(self, player: str, checkers: Checkers):
-        super.__init__(player, checkers)
+        super().__init__(player, checkers)
 
     def get_move(self, row: int, col: int, drow: int, dcol: int):
         """ Pygame will retrieve the coordinates of the tile and pass those
