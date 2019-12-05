@@ -107,18 +107,24 @@ class CheckersBoard:
         '''
         moves_available = 0
         piece = self.get(row, col)
+        if abs(drow + dcol) == 1:
+            return False
+
         if(piece == self.empty):
             return False
     
         # check if piece has move and modify the board if it does
-        if(self.has_move(row, col, drow, dcol) == False):
+        if(not self.has_move(row, col, drow, dcol)):
             return False
 
         else:
+
             if(self.get(row + drow, col + dcol) == self.empty):
                 piece = self.get(row, col)
                 self.board[row][col] = self.empty
                 self.board[row + drow][col + dcol] = piece
+
+
                 self.turn = self.other_player(piece)
 
                 return True
