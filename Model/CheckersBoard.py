@@ -127,7 +127,7 @@ class CheckersBoard:
                 piece = self.get(row, col)
                 self.board[row][col] = self.empty
                 self.board[row + drow][col + dcol] = piece
-
+                self.king_piece(row + drow, col + dcol)
 
                 self.turn = self.other_player(piece)
 
@@ -137,6 +137,7 @@ class CheckersBoard:
                 self.board[row][col] = self.empty
                 self.board[row + drow][col + dcol] = self.empty
                 self.board[row + 2*drow][col + 2*dcol] = piece
+                self.king_piece(row + 2*drow, col + 2*dcol)
                 # change turn to other players turn if player has no more moves if its a regular piece
                 if(piece == self.player_1 or piece == self.player_2):
                     # for each direction check if player can take over the opponents piece
